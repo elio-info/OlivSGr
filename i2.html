@@ -40,11 +40,15 @@
           <button onclick="cambioDivJuego('portada_gms','infoGrl_n1')">
             Jugar
           </button>
+          <select name="salto" id="salto" onchange="pasarA(this.value)">
+            <option value="" disabled selected>---Selccionar nivel superiores ---</option>
+            <option value="2">¡Nivel 2!</option>
+          </select>
         </div>
       </div>
     </div>
     <!-- fin de portada juego -->
-    <!-- inicio de informacion gral juego oculto-->
+    <!-- inicio de informacion gral juego nivel 1 oculto-->
     <div id="infoGrl_n1" style="display: none">
       <img
         src="utls/imgs/gms/n1/ninos_arbol_herram.JPG"
@@ -62,10 +66,10 @@
       </div>
       <div class="lista-centro">
         <div class="posc-fondo-div-proxNvl">
-          <button onclick="cambioDivJuego('infoGrl_gms','infoGrl_n1_gms')" class="btn btn-warning">
+          <button onclick="cambioDivJuego('infoGrl_n1','infoGrl_n1_gms')" class="btn btn-warning">
             Ver tutorial
           </button>
-          <button onclick="inicioDivJuego('infoGrl_gms','n1_gms','n1',6)" class="btn btn-success" >
+          <button onclick="inicioDivJuego('infoGrl_n1','n1_gms','n1',6)" class="btn btn-success" >
             Comenzar a Jugar
           </button>
         </div>
@@ -90,7 +94,7 @@
       <!-- aqui es algo -->
       <div class="letrero-img-centro">
         <img
-          src="utls/imgs/gms/n1_terreno_original.jpg"
+          src="utls/imgs/gms/terreno_original.jpg"
           id="galeriaImg"
           alt="Olive Farm"
           class="imagenFit"
@@ -108,7 +112,7 @@
             class="posc-fondo-div-tierra"            
           >
             <img
-              src="utls/imgs/gms/n1_tierra sin arar.jpg"
+              src=""
               alt="ads"
               class="imagenScala60"
               id="n1_1"
@@ -122,21 +126,21 @@
             class="posc-fondo-div-herra"           
           >
             <img
-              src="utls/imgs/gms/herr_pico.jpg"
+              src="utls/imgs/gms/n1/herr_pico.jpg"
               alt="ads"
               class="imagenScala20Tool"
               id="n1_h1"
               onclick="accion_A_Realizar(1);"
             />
             <img
-              src="utls/imgs/gms/herr_post.png"
+              src="utls/imgs/gms/n1/herr_post.png"
               alt="asda"
               class="imagenScala20Tool"
               id="n1_h2"
               onclick="accion_A_Realizar(2);"
             />
             <img
-              src="utls/imgs/gms/herr_regad.png"
+              src="utls/imgs/gms/n1/herr_regad.png"
               alt="asda"
               class="imagenScala20Tool"
               id="n1_h3"
@@ -150,7 +154,7 @@
             class="posc-fondo-div-proxNvl"
             style="display: none"
           >
-            <button onclick="inicioDivJuego('n1_gms','n2_gms','n2',6)" class="btn btn-success btn-lg">
+            <button onclick="inicioDivJuego('n1_gms','infoGrl_n2','n2',6)" class="btn btn-success btn-lg">
               ¡Nivel vencido!
             </button>
           </div>
@@ -161,6 +165,119 @@
     <!-- fin de fotos y cosa -->
     <!-- FIN  Nivel 1: Plantación de olivos -->
 
+    <!-- inicio de informacion gral juego nivel 2 oculto-->
+    <div id="infoGrl_n2" style="display: none">
+      <img
+        src="utls/imgs/gms/n2/n2_ninos_arboles_cuidados.jpg"
+        alt="Olive Farm"
+        class="imagenFit img-fluid"
+      />
+      <div class="letrero-txt-lado-arriba-derecha peque">
+        <h2>Olivares Santos Grampha´s</h2>
+        <p class="fondo-opaco">
+          Debemos mantener lo que hacemos. Revizar y velar por nuestras posturas.
+        </p>
+      </div>
+      <div class="lista-centro">
+        <div class="posc-fondo-div-proxNvl">
+          <button onclick="cambioDivJuego('infoGrl_n2','infoGrl_n2_gms')" class="btn btn-warning">
+            Ver tutorial
+          </button>
+          <button onclick="inicioDivJuego('infoGrl_n2','n1_gms','n2',6)" class="btn btn-success" >
+            Comenzar a Jugar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- inicio de ayuda gral del nivel juego oculto-->
+    <div id="infoGrl_n2_gms" style="display: none" class=" letrero-img-centro">
+      <section class="video_container">
+      <video controls >
+        <source src="utls/imgs/gms/n1_01audio.mp4" type="video/mp4" />
+        Formato no soprtado
+      </video>
+     </section>
+     <div style="display: none" class="d-grid gap-2 col-6 mx-auto posc-fondo-div"  id="pasarNvl_1">
+      <button onclick="inicioDivJuego('infoGrl_n1_gms','n1_gms','n1',6)" class="btn btn-success ">
+            Comenzar a Jugar
+          </button>          
+     </div>
+    </div>
+    <!-- Nivel 1: Plantación de olivos -->
+    <div id="n2_gms" style="display: none">
+      <!-- aqui es algo -->
+      <div class="letrero-img-centro">
+        <img
+          src="utls/imgs/gms/terreno_original.jpg"
+          id="galeriaImg"
+          alt="Olive Farm"
+          class="imagenFit"
+        />
+        <div class="letrero-txt-lado-arriba">
+          <h2>Olivares Santos Grampha´s</h2>
+          <h4 id="n2_cabeza" class="fondo-opaco"></h4>
+        </div>
+
+        <!-- seccion de acciones de juego justify-content-center-->
+        <div class="lista-centro" id="N2_GameSeccion">         
+          <!-- lugar n terreno <div  >class="letrero-txt-centro-abajo"-->
+          <div
+            id="n2_tierra_row"
+            class="posc-fondo-div-tierra"            
+          >
+            <img
+              src=""
+              alt="ads"
+              class="imagenScala60"
+              id="n2_1"
+              onclick="mostrarCambioEstado('4','local');"
+            />
+          </div>
+          <!-- fin lugar n terreno -->
+          <!-- lugar acciones sobre terreno  -->
+          <div
+            id="herram_row"
+            class="posc-fondo-div-herra"           
+          >
+            <img
+              src="utls/imgs/gms/herr_pico.jpg"
+              alt="ads"
+              class="imagenScala20Tool"
+              id="n2_h1"
+              onclick="accion_A_Realizar(1);"
+            />
+            <img
+              src="utls/imgs/gms/herr_post.png"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n2_h2"
+              onclick="accion_A_Realizar(5);"
+            />
+            <img
+              src="utls/imgs/gms/herr_regad.png"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n2_h3"
+              onclick="accion_A_Realizar(6);"
+            />
+          </div>
+          <!-- fin lugar acciones sobre terreno  -->
+          <!-- pasar prox -->
+          <div
+            id="pasar-prox2"
+            class="posc-fondo-div-proxNvl"
+            style="display: none"
+          >
+            <button onclick="inicioDivJuego('n2_gms','infoGrl_n3','n3',6)" class="btn btn-success btn-lg">
+              ¡Nivel vencido!
+            </button>
+          </div>
+          <!-- fin pasar prox Nivel N3-->
+        </div>
+      </div>
+    </div>
+    <!-- fin de fotos y cosa -->
+    <!-- FIN  Nivel 2: Atebder plantación de olivos -->
     <!-- end poner el juego -->
   </body>
   <script type="text/javascript" src="utls/js/jquery.min.js"></script>

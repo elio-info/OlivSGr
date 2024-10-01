@@ -1,6 +1,6 @@
 let terrenos_estados = []
 let acc_a_realizar = '',
-  acciones = ['nada', 'arar', 'semb', 'regad']
+  acciones = ['nada', 'arar', 'semb', 'regad','chap','insect','poda']
 let img_ruta_src = "utls/imgs/gms/"
 let tiempo = 6000
 let letreros_nvl =
@@ -8,17 +8,14 @@ let letreros_nvl =
   'n1':
   {
     'cabeza': 'Para tener olivos, primero hay que plantar',
+    fig_inicio:'n1_tierra sin arar.jpg',
     'final':3//acciones[3]='regad'
   },
 
   "n2": {
-    'cabeza': 'De lehtras deo',
-    'pasos': [
-      "Coge el pico y quita la hierba...",
-      "Coge el pico y quita la hierba...",
-      "Coge el pico y quita la hierba...",
-      "Coge el pico y quita la hierba...",
-    ]
+    'cabeza': 'Debemos conservar lo que plantamos',
+    fig_inicio:'n2_tierra con hierba.jpg',
+    'final':6//acciones[6]='poda'    
   }
 }
 /**
@@ -36,6 +33,11 @@ function vaciarElto(elto) {
 
 function mostrarElto(elto) {
   $('#' + elto).classList.remove('oculto')
+}
+
+function pasarA(params) {
+  // console.log(params);
+  cambioDivJuego('portada_gms','infoGrl_n'+params)  
 }
 
 
@@ -127,16 +129,16 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
   // oculto letrero guia
   //$('#guia_' + nivel)[0].setAttribute('style', 'display:none;');
   // lleno de tierra
-  ponerFotoTierra("tierra_row", cantTierra, nivel, acciones[1] + '_0')
+  ponerFotoSerieEnTierra("tierra_row", cantTierra, nivel, acciones[1] + '_0')
    // pongo letrero dentro en la pantalla juego Nivel ?
   ponerLetreroGuiaNivel( nivel, 'c')
 
 }
 
-function ponerFotoTierra(lugarPoner, cantRepetirImg, nvl, accionRecibe) {
+function ponerFotoSerieEnTierra(lugarPoner, cantRepetirImg, nvl, accionRecibe) {
   vaciarElto(lugarPoner)
   for (let index = 0; index < cantRepetirImg; index++) {
-    crearImg(nvl + "_" + index, "utls/imgs/gms/n1_tierra sin arar.jpg", "imagenScala60", "mostrarCambioEstado('" + nvl + "_" + index + "','" + (index == 0 ? accionRecibe : "") + "');", coger(lugarPoner)
+    crearImg(nvl + "_" + index, img_ruta_src+'/'+nvl+'/'+ letreros_nvl[nvl].fig_inicio, "imagenScala60", "mostrarCambioEstado('" + nvl + "_" + index + "','" + (index == 0 ? accionRecibe : "") + "');", coger(lugarPoner)
     )
   }
 }
@@ -154,7 +156,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
    // solo accion si el paso sucesivo es el que se acciona
   if (terrenos_estados[num_trn] + 1 == acc_a_realizar) {
     terrenos_estados[num_trn]++
-    img_terreno.src = img_ruta_src + nvl_trn + "_tierra_" + acciones[acc_a_realizar] + ".jpg"
+    img_terreno.src = img_ruta_src +'/'+nvl_trn+'/'+ nvl_trn + "_tierra_" + acciones[acc_a_realizar] + ".jpg"
     acc_a_realizar = ''
   }
   // si todos llegaron a la accion final

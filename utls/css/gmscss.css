@@ -25,11 +25,18 @@
     top: 5%;
     left: 5%;
 }
+.letrero-txt-lado-arriba-derecha{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
 
 .fondo-opaco{
     background-color: rgb(127 255 212 / 70%);
     color: #0f5132;
-    text-align: justify;
+    text-align: justify ;
+    text-emphasis: calc(.5);
+    padding:  5%;
 }
 .peque{
     width: 40%; height: auto;
