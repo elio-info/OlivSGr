@@ -1,0 +1,101 @@
+.lista-centro{
+    display: grid;
+    /* justify-content: center;
+    position: relative; */
+    place-items: center;
+}
+
+.letrero-img-centro-abajo{
+    position: relative;
+    bottom: 40%;
+}
+
+.letrero-img-centro{
+    position: relative;
+    bottom: 4%;
+}
+
+.letrero-txt-centro-arriba{
+    position: absolute;
+    top: 10%;
+}
+
+.letrero-txt-lado-arriba{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.fondo-opaco{
+    background-color: rgb(127 255 212 / 70%);
+    color: #0f5132;
+    text-align: justify;
+}
+.peque{
+    width: 40%; height: auto;
+}
+
+.letrero-txt-centro-abajo{
+    position: absolute;
+    /*bottom: 10%;
+     left: 25%; */
+    color: white;
+}
+.posc-fondo-div{
+    position: absolute;
+    top: 5%;
+    justify-content: inherit;
+}
+.posc-fondo-div-proxNvl{
+    position: absolute;
+    bottom: 15%;
+}
+.posc-fondo-div-tierra{
+position: absolute;
+    bottom: 6rem;
+}
+.posc-fondo-div-herra{
+    position: absolute;bottom: 2rem;
+}
+.posc-fondo-div-letrero-guia{
+   position: absolute; bottom: 14%;
+}
+
+.imagenFit{
+    object-fit: cover;
+	width: 100%; /* La imagen ocupa el 100% del ancho del div */
+    height: 100vh; /* La imagen ocupa el 100% del alto del div */    
+}
+.imagenWebp{
+	width: 100%; /* La imagen ocupa el 100% del ancho del div */
+    height: 95%; /* La imagen ocupa el 100% del alto del div */    
+}
+
+.imagenScala60 {
+	height: 6rem;
+	width: 6rem;
+}
+
+.imagenScala20Tool {
+	height: 60px;
+	width: 90px;
+	/* padding-left: 0;
+	padding-right: 0; */
+}
+
+.fondo_casa{
+    src: url("../imgs/gms/n1_terreno_original.jpg");
+}
+
+.video_container{
+    height: 100vh  ;
+    max-width: 90%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.video_container video {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    width: 100%;
+}
