@@ -35,7 +35,7 @@
     background-color: rgb(127 255 212 / 70%);
     color: #0f5132;
     text-align: justify ;
-    text-emphasis: calc(.5);
+    font-size: 1.5rem;
     padding:  5%;
 }
 .peque{

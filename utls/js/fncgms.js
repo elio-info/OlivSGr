@@ -8,13 +8,15 @@ let letreros_nvl =
   'n1':
   {
     'cabeza': 'Para tener olivos, primero hay que plantar',
+    lugar:'tierra',
     fig_inicio:'n1_tierra sin arar.jpg',
     'final':3//acciones[3]='regad'
   },
 
   "n2": {
     'cabeza': 'Debemos conservar lo que plantamos',
-    fig_inicio:'n2_tierra con hierba.jpg',
+    lugar:'planta',
+    fig_inicio:'n2_planta con hierba.jpg',
     'final':6//acciones[6]='poda'    
   }
 }
@@ -124,12 +126,12 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
   cambioDivJuego(divActual, divSiguiente)
   // cambio estados
   for (let index = 0; index < cantTierra; index++) {
-    terrenos_estados[index] = parseInt(nivel[1]) - 1
+    terrenos_estados[index] = (parseInt(nivel[1]) - 1) * 3//se mueve de a 3 por Nivel
   }
   // oculto letrero guia
   //$('#guia_' + nivel)[0].setAttribute('style', 'display:none;');
   // lleno de tierra
-  ponerFotoSerieEnTierra("tierra_row", cantTierra, nivel, acciones[1] + '_0')
+  ponerFotoSerieEnTierra(nivel+"_tierra_row", cantTierra, nivel, acciones[1] + '_0')
    // pongo letrero dentro en la pantalla juego Nivel ?
   ponerLetreroGuiaNivel( nivel, 'c')
 
@@ -156,7 +158,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
    // solo accion si el paso sucesivo es el que se acciona
   if (terrenos_estados[num_trn] + 1 == acc_a_realizar) {
     terrenos_estados[num_trn]++
-    img_terreno.src = img_ruta_src +'/'+nvl_trn+'/'+ nvl_trn + "_tierra_" + acciones[acc_a_realizar] + ".jpg"
+    img_terreno.src = img_ruta_src +'/'+nvl_trn+'/'+ nvl_trn + "_"+letreros_nvl[nvl_trn].lugar+"_" + acciones[acc_a_realizar] + ".jpg"
     acc_a_realizar = ''
   }
   // si todos llegaron a la accion final
