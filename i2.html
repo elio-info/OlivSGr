@@ -78,13 +78,13 @@
     <!-- inicio de ayuda gral del nivel juego oculto-->
     <div id="infoGrl_n1_gms" style="display: none" class=" letrero-img-centro">
       <section class="video_container">
-      <video controls >
-        <source src="utls/imgs/gms/n1/n1_01audio.mp4" type="video/mp4" />
+      <video controls id="n1_01" >
+        <source src="utls/imgs/gms/n1/n1_01.mp4" type="video/mp4" />
         Formato no soprtado
       </video>
      </section>
      <div style="display: none" class="d-grid gap-2 col-6 mx-auto posc-fondo-div"  id="pasarNvl_1">
-      <button onclick="inicioDivJuego('infoGrl_n1_gms','n1_gms','n1',6)" class="btn btn-success ">
+      <button onclick="paraVideo_Jugar('n1');" class="btn btn-success ">
             Comenzar a Jugar
           </button>          
      </div>
@@ -192,13 +192,13 @@
     <!-- inicio de ayuda gral del nivel juego oculto-->
     <div id="infoGrl_n2_gms" style="display: none" class=" letrero-img-centro">
       <section class="video_container">
-      <video controls >
-        <source src="utls/imgs/gms/n2/olivares inicios nivel 02 v01.mp4" type="video/mp4" />
+      <video controls id="n2_01">
+        <source src="utls/imgs/gms/n2/n2_01.mp4" type="video/mp4" />
         Formato no soprtado
       </video>
      </section>
      <div style="display: none" class="d-grid gap-2 col-6 mx-auto posc-fondo-div"  id="pasarNvl_1">
-      <button onclick="inicioDivJuego('infoGrl_n2_gms','n2_gms','n2',6)" class="btn btn-success ">
+      <button onclick="paraVideo_Jugar('n2')" class="btn btn-success ">
             Comenzar a Jugar
           </button>          
      </div>
@@ -278,6 +278,8 @@
     </div>
     <!-- fin de fotos y cosa -->
     <!-- FIN  Nivel 2: Atebder plantación de olivos -->
+
+    
     <!-- end poner el juego -->
   </body>
   <script type="text/javascript" src="utls/js/jquery.min.js"></script>

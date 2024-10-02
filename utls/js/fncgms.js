@@ -174,3 +174,15 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
 function accion_A_Realizar(trabajo) {
   acc_a_realizar = trabajo
 }
+/**
+ * para la recporduccion y saltar al proximo juego
+ * @param {string} params nivel que se pasara
+ */
+function paraVideo_Jugar(params) {
+  //para video
+  let perr=coger('#'+params+'_01')
+  alert('hay que parar el video antes')
+  perr.pause()
+  console.log(perr.controlsList);  
+  //inicioDivJuego('infoGrl_'+params+'_gms',params+'_gms',params,6)
+}
