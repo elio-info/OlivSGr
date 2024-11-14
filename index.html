@@ -4,296 +4,567 @@
 
   <head>
     <meta charset="utf-8" />
-    <!-- InstanceBeginEditable name="doctitle" -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      <!--
+      InstanceBeginEditable
+      name="doctitle"
+      --
+    />
     <title>Olive Land Farms</title>
     <link rel="icon" type="image/jpg" href="utls/imgs/logotipo.jpg" />
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="head" -->
     <!-- InstanceEndEditable -->
     <link href="utls/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="utls/css/carousel.css" />
-    <link href="utls/css/mycss.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="utls/css/ncarousel.css" />
+    <link href="utls/css/nmycss.css" rel="stylesheet" type="text/css" />
     <link href="utls/css/gmscss.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body>
-    <div class="container">
-      <!-- poner el juego
-    -->
-      <div class="content">
-        <!-- inicio de portada juego -->
-        <div class="row" id="portada_gms">
-          <div class="letrero-img-centro">
-            <img
-              src="utls/imgs/local/IMG-39.jpg"
-              alt="Olive Farm"
-              class="imagenFit"
-            />
-            <div class="letrero-txt-centro-arriba">
-              <h2>Olivares Santos Grampha´s</h2>
-            </div>
-            <div class="letrero-txt-centro-abajo">
-              <button onclick="cambioDivJuego('portada_gms','infoGrl_gms')">
-                Jugar
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- fin de portada juego -->
-        <!-- inicio de informacion gral juego oculto-->
-        <div class="row" id="infoGrl_gms" style="display: none;">
-          <div class="letrero-img-centro">
-            <img
-              src="utls/imgs/gms/todos_arbol_herramientas.jpg"
-              alt="Olive Farm"
-              class="imagenFit"
-            />
-            <div class="letrero-txt-lado-arriba peque">
-              <p>
-                <b> Olivares Santos Grampha´s </b>
-              </p>
-              <p class="">
-                Toda niñez debe ser capaz de organizar las diferentes
-                actividades en una finca de olivos, comenzando desde la etapa de
-                plantación de olivos venciendo los diferentes obstáculos que se
-                les presentan, hasta el logro del retoño.
-              </p>
-            </div>
-            <div class="letrero-txt-centro-abajo">
-              <button onclick="inicioDivJuego('infoGrl_gms','n1_gms','n1',6)">
-                Comenzar a Jugar
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- fin row centro info -->
-
-        <!-- Nivel 1: Plantación de olivos -->
-        <div class="row" id="n1_gms" style="display: none;">
-          <!-- aqui es algo -->
-          <div class="letrero-img-centro">
-            <img
-                  src="utls/imgs/gms/n1_terreno_original.jpg"
-                  id="galeriaImg"
-                  alt="Olive Farm"
-                  class="imagenFit"
-                />
-                <div class="letrero-txt-centro-arriba">
-                  <h2>Olivares Santos Grampha´s</h2>
-                  <h4 id="letrero_poner_arriba"></h4>
-                </div> 
-                <div class="letrero-txt-centro-abajo">
-                  <h4 id="letrero_poner_abajo" ></h4>
-                </div> 
-                
-              <!-- seccion de thumbs justify-content-center-->
-              <div id="N1_GameSeccion" class="letrero-img-centro-abajo">
-                <div id="tierra_row">
-                  <img
-                    src="utls/imgs/gms/n1_tierra sin arar.jpg"
-                    alt="ads"
-                    class="imagenScala60"
-                    id="n1_1"
-                    onclick="mostrarCambioEstado('1','local');"
-                  />                                 
-                </div>
-                <div id="herram_row">
-                  <img
-                    src="utls/imgs/gms/herr_pico.jpg"
-                    alt="ads"
-                    class="imagenScala20Tool"
-                    id="n1_1"
-                    onclick="accion_A_Realizar(1);"
-                  />
-                  <img
-                    src="utls/imgs/gms/herr_post.png"
-                    alt="asda"
-                    class="imagenScala20Tool"
-                    id="22"
-                    onclick="accion_A_Realizar(2);"
-                  />
-                  <img
-                    src="utls/imgs/gms/herr_regad.png"
-                    alt="asda"
-                    class="imagenScala20Tool"
-                    id="39"
-                    onclick="accion_A_Realizar(3);"
-                  />                                    
-                </div>
-              </div>
-
-            </div>
-            <button onclick="inicioDivJuego('n1_gms','n2_gms','n2',6)">
-              Comenzar a Jugar
-            </button> -->
-        </div><!-- fin de fotos y cosa -->
-        <!-- FIN  Nivel 1: Plantación de olivos -->
-
-        <!-- todavia Nivel 2: Cosas Plantación de olivos -->
-        <div class="row" id="n2_gms" style="display: none;">
-          <!-- aqui es algo -->
-           <div class="row" id="galeria">
-                <img
-                  src="utls/imgs/act-trabajo/img-trab-04.jpg"
-                  id="galeriaImg"
-                  alt="Olive Farm"
-                  class="imagenScala80"
-                />
-              </div>
-
-              
-            <div class="letrero-txt-centro-arriba">
-              <h2>Olivares Santos Grampha´s</h2>
-            </div>
-              
-              <div class="p-2 d-flex justify-content-center">
-            
-            <div class="oculto ecommerce-gallery"></div>
-             
-              <!-- row fin de mostrar -->
-              <!-- seccion de thumbs justify-content-center-->
-              <div id="thumbs456Seccion" class="letrero-img-centro-abajo">
-                <div class="45letrero-txt-centro-abajodd">
-                  <img
-                    src="utls/imgs/local/IMG-21.jpg"
-                    alt="ads"
-                    class="imagenScala20"
-                    id="21"
-                    onclick="mostrarEnCarrusel('21','local');"
-                  />
-                  <img
-                    src="utls/imgs/local/IMG-22.jpg"
-                    alt="asda"
-                    class="imagenScala20"
-                    id="22"
-                    onclick="mostrarEnCarrusel('22','local');"
-                  />
-                  <img
-                    src="utls/imgs/local/IMG-39.jpg"
-                    alt="asda"
-                    class="imagenScala20"
-                    id="39"
-                    onclick="mostrarEnCarrusel('39','local');"
-                  />
-                  <img
-                    src="utls/imgs/local/IMG-41.jpg"
-                    alt="ads"
-                    class="imagenScala20"
-                    id="41"
-                    onclick="mostrarEnCarrusel('41','local');"
-                  />
-                  <img
-                    src="utls/imgs/local/IMG-42.jpg"
-                    alt="asda"
-                    class="imagenScala20"
-                    id="42"
-                    onclick="mostrarEnCarrusel('42','local');"
-                  />
-                  <img
-                    src="utls/imgs/local/IMG-47.jpg"
-                    alt="asda"
-                    class="imagenScala20"
-                    id="47"
-                    onclick="mostrarEnCarrusel('47','local');"
-                  />
-                </div>
-              </div>
-              <!-- fin de seccion de thumbs --
-              <!-- seccion de thumbs row justify-content-center-->
-              <div id="thumbs123Seccion" class="">
-                <img
-                  src="utls/imgs/local/IMG-05.jpg"
-                  alt="ads"
-                  class="imagenScala20 active"
-                  id="05"
-                  onclick="mostrarEnCarrusel('05','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-01.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="06"
-                  onclick="mostrarEnCarrusel('01','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-10.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="10"
-                  onclick="mostrarEnCarrusel('10','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-21.jpg"
-                  alt="ads"
-                  class="imagenScala20"
-                  id="21"
-                  onclick="mostrarEnCarrusel('21','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-22.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="22"
-                  onclick="mostrarEnCarrusel('22','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-39.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="39"
-                  onclick="mostrarEnCarrusel('39','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-41.jpg"
-                  alt="ads"
-                  class="imagenScala20"
-                  id="41"
-                  onclick="mostrarEnCarrusel('41','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-42.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="42"
-                  onclick="mostrarEnCarrusel('42','local');"
-                />
-                <img
-                  src="utls/imgs/local/IMG-47.jpg"
-                  alt="asda"
-                  class="imagenScala20"
-                  id="47"
-                  onclick="mostrarEnCarrusel('47','local');"
-                />
-              </div>
-              <!-- fin de seccion de thumbs -->
-            
-          </div>
-          <!-- fin de fotos y cosa -->
-        </div>
-        <!-- fin col - 8 fotos de la finca -->
-        <!-- FIN  Nivel 2: Plantación de olivos -->        
+  <body onresize="displayDim('r');" onload="displayDim('l')">
+    <!-- poner el juego     -->
+    <!-- inicio de portada juego -->
+    <div id="portada_gms">
+      <img
+        src="utls/imgs/local/IMG-39.jpg"
+        alt="Olive Farm"
+        class="imagenFit img-fluid"
+      />
+      <div class="letrero-txt-lado-arriba">
+        <h1>Olivares Santos Grampha´s</h1>
+        <p class="fondo-opaco">
+         Ven a la aventura del mundo de los olivos.
+        </p>
       </div>
-      <!-- end .content -->
-      <!-- InstanceEndEditable -->
-       
-      <div class="footer">
-        <div class="p-0 info-justify">
-          <div class="row">
-            <span class="fs-6">Olive Land Farms © </span>
-            <span class="fs-6">
-              <!-- -->&reg; 2024<!-- -->
-              Data Mining<!-- -->
-              <!-- -->Todos los derechos reservados.</span
-            >
-          </div>
+      <div class="lista-centro">
+        <div class="posc-fondo-div-proxNvl">
+          <button onclick="Salir()">Salir</button>
+          <button onclick="cambioDivJuego('portada_gms','infoGrl_n1')">
+            Jugar
+          </button>
+          <select name="salto" id="salto" onchange="pasarA(this.value)">
+            <option value="" disabled selected>---Selccionar nivel superiores ---</option>
+            <option value="2">¡Nivel 2!</option>
+            <option value="3">¡Nivel 3!</option>
+            <option value="4">¡Nivel 4!</option>
+            <option value="5">Probar</option>
+          </select>
         </div>
-        <!-- end .footer -->
       </div>
-       
-      
-      <!-- end .footer -->
     </div>
-    <!-- end .container -->
+    <!-- fin de portada juego -->
+    <!-- inicio de informacion gral juego nivel 1 oculto-->
+     <div id="nivel_1">
+    <div id="infoGrl_n1" style="display: none">
+      <img
+        src="utls/imgs/gms/n1/ninos_arbol_herram.JPG"
+        alt="Olive Farm"
+        class="imagenFit img-fluid"
+      />
+      <div class="letrero-txt-lado-arriba peque">
+        <h2>Olivares Santos Grampha´s</h2>
+        <p class="fondo-opaco">
+          Toda niñez debe ser capaz de organizar las diferentes actividades en
+          una finca de olivos, comenzando desde la etapa de plantación de olivos
+          venciendo los diferentes obstáculos que se les presentan, hasta el
+          logro del retoño.
+        </p>
+      </div>
+      <div class="lista-centro">
+        <div class="posc-fondo-div-proxNvl">
+          <button onclick="cambioDivJuego('infoGrl_n1','infoGrl_n1_gms')" class="btn btn-warning">
+            Ver tutorial
+          </button>
+          <button onclick="inicioDivJuego('infoGrl_n1','n1_gms','n1',6)" class="btn btn-success" >
+            Comenzar a Jugar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- inicio de ayuda gral del nivel juego oculto-->
+    <div id="infoGrl_n1_gms" style="display: none" class=" letrero-img-centro">
+      <section class="video_container">
+      <video  id="n1_01" controls>
+        <source src="utls/imgs/gms/n1/n1_01.mp4" type="video/mp4" />
+        Formato no soprtado
+      </video>
+     </section>
+     <div  class="d-grid col-10 mx-auto posc-fondo-div-StopVideo"  id="pasarNvl_1">
+      <button onclick="paraVideo_Jugar('n1');" class="btn btn-success ">
+            Comenzar a Jugar
+          </button>          
+     </div>
+    </div>
+    <!-- Nivel 1: Plantación de olivos -->
+    <div id="n1_gms" style="display: none">
+      <!-- aqui es algo -->
+      <div class="letrero-img-centro">
+        <img
+          src="utls/imgs/gms/terreno_original.jpg"
+          id="galeriaImg"
+          alt="Olive Farm"
+          class="imagenFit"
+        />
+        <div class="letrero-txt-lado-arriba">
+          <h2>Olivares Santos Grampha´s</h2>
+          <h4 id="n1_cabeza" class="fondo-opaco"></h4>
+        </div>
+
+        <!-- seccion de acciones de juego justify-content-center-->
+        <div class="lista-centro" id="N1_GameSeccion">         
+          <!-- lugar n terreno <div  >class="letrero-txt-centro-abajo"-->
+          <div
+            id="n1_tierra_row"
+            class="posc-fondo-div-tierra"            
+          >
+            <img
+              src=""
+              alt="ads"
+              class="imagenScala60"
+              id="n1_1"
+              onclick="mostrarCambioEstado('1','local');"
+            />
+          </div>
+          <!-- fin lugar n terreno -->
+          <!-- lugar acciones sobre terreno  -->
+          <div
+            id="n1_herram_row"
+            class="posc-fondo-div-herra"           
+          >
+            <img
+              src="utls/imgs/gms/n1/herr_pico.jpg"
+              alt="ads"
+              class="imagenScala20Tool"
+              id="n1_h1"
+              onclick="accion_A_Realizar(1);"
+            />
+            <img
+              src="utls/imgs/gms/n1/herr_post.png"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n1_h2"
+              onclick="accion_A_Realizar(2);"
+            />
+            <img
+              src="utls/imgs/gms/n1/herr_regad.png"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n1_h3"
+              onclick="accion_A_Realizar(3);"
+            />
+          </div>
+          <div id="Salida" class="posc-fondo-div-Salida">
+            <button >type="reset"</button>
+          </div>
+          <!-- fin lugar acciones sobre terreno  -->
+          <!-- pasar prox -->
+          <div id="pasar-prox2"   class="posc-fondo-div-proxNvl"   style="display: none" >
+            <img src="utls/imgs/gms/n_globos.png" alt="**" id="n1_glob" class="imagenWebp">
+            <div>
+              <button onclick="inicioDivJuego('n1_gms','infoGrl_n2','n2',6)" class="btn btn-success btn-lg">
+                ¡Nivel terminado!  Sigamos...
+             </button>
+              <button onclick="finDivJuego('n1_gms')" class="btn btn-secondary btn-lg">
+                ¿ Desea salir del juego ?
+              </button>
+            </div>
+            <!-- fin de botones SALIDA -->
+          </div>
+          <!-- fin pasar prox Nivel N2-->
+        </div>
+      </div>
+    </div>
+    <!-- fin de fotos y cosa -->
+    </div>
+    <!-- FIN  Nivel 1: Plantación de olivos -->
+
+    <!-- inicio de informacion gral juego nivel 2 oculto-->
+    <div id="nivel_2">
+    <div id="infoGrl_n2" style="display: none">
+      <img
+        src="utls/imgs/gms/n2/n2_ninos_arboles_cuidados.jpg"
+        alt="Olive Farm"
+        class="imagenFit img-fluid"
+      />
+      <div class="letrero-txt-lado-arriba-derecha peque">
+        <h2>Olivares Santos Grampha´s</h2>
+        <p class="fondo-opaco">
+          Debemos mantener lo que hacemos. Revizar y velar por nuestras posturas.
+        </p>
+      </div>
+      <div class="lista-centro">
+        <div class="posc-fondo-div-proxNvl">
+          <button onclick="cambioDivJuego('infoGrl_n2','infoGrl_n2_gms')" class="btn btn-warning">
+            Ver tutorial
+          </button>
+          <button onclick="inicioDivJuego('infoGrl_n2','n2_gms','n2',6)" class="btn btn-success" >
+            Comenzar a Jugar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- inicio de ayuda gral del nivel juego oculto-->
+    <div id="infoGrl_n2_gms" style="display: none" class=" letrero-img-centro">
+      <section class="video_container">
+      <video id="n2_01" controls>
+        <source src="utls/imgs/gms/n2/n2_01.mp4" type="video/mp4" />
+        Formato no soprtado
+      </video>
+     </section>
+     <div  class="d-grid col-10 mx-auto posc-fondo-div-StopVideo"  id="pasarNvl_1">
+      <button onclick="paraVideo_Jugar('n2')" class="btn btn-success ">
+            Comenzar a Jugar
+          </button>          
+     </div>
+    </div>
+    <!-- Nivel 1: Plantación de olivos -->
+    <div id="n2_gms" style="display: none">
+      <!-- aqui es algo -->
+      <div class="letrero-img-centro">
+        <img
+          src="utls/imgs/gms/terreno_original.jpg"
+          id="galeriaImg"
+          alt="Olive Farm"
+          class="imagenFit"
+        />
+        <div class="letrero-txt-lado-arriba">
+          <h2>Olivares Santos Grampha´s</h2>
+          <h4 id="n2_cabeza" class="fondo-opaco"></h4>
+        </div>
+
+        <!-- seccion de acciones de juego justify-content-center-->
+        <div class="lista-centro" id="N2_GameSeccion">         
+          <!-- lugar n terreno <div  >class="letrero-txt-centro-abajo"-->
+          <div
+            id="n2_tierra_row"
+            class="posc-fondo-div-tierra"            
+          >
+            <img
+              src=""
+              alt="ads"
+              class="imagenScala60"
+              id="n2_1"
+              onclick="mostrarCambioEstado('4','local');"
+            />
+          </div>
+          <!-- fin lugar n terreno -->
+          <!-- lugar acciones sobre terreno  -->
+          <div
+            id="n2_herram_row"
+            class="posc-fondo-div-herra"           
+          >
+            <img
+              src="utls/imgs/gms/n2/herr_chap.jpg"
+              alt="ads"
+              class="imagenScala20Tool"
+              id="n2_h1"
+              onclick="accion_A_Realizar(4);"
+            />
+            <img
+              src="utls/imgs/gms/n2/herr_fumig.jpg"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n2_h2"
+              onclick="accion_A_Realizar(5);"
+            />
+            <img
+              src="utls/imgs/gms/n2/herr_poda.jpg"
+              alt="asda"
+              class="imagenScala20Tool"
+              id="n2_h3"
+              onclick="accion_A_Realizar(6);"
+            />
+          </div>
+          <!-- fin lugar acciones sobre terreno  -->
+          <!-- pasar prox -->
+          <div id="pasar-prox3" class="posc-fondo-div-proxNvl"  style="display: none"  >
+          <img src="utls/imgs/gms/n_globos.png" alt="**" id="n2_glob" class="imagenWebp">
+          <div>
+            <button onclick="inicioDivJuego('n2_gms','infoGrl_n3','n3',6)" class="btn btn-success btn-lg">
+              ¡Nivel terminado!
+            </button>
+            <button onclick="finDivJuego('n2_gms')" class="btn btn-secondary btn-lg">
+              ¿ Desea salir del juego ?
+            </button>
+          </div>
+            <!-- fin de botones -->
+          </div>
+          <!-- fin pasar prox Nivel N3-->
+        </div>
+      </div>
+    </div>
+    <!-- fin de fotos y cosa -->
+     </div>
+    <!-- FIN  Nivel 2: Atebder plantación de olivos -->
+
+     <!-- inicio de informacion gral juego nivel 3 oculto-->
+    <div id="nivel_3">
+      <div id="infoGrl_n3" style="display: none">
+        <img
+          src="utls/imgs/gms/n3/n3_ninos_arbol_recolect.JPG"
+          alt="Olive Farm"
+          class="imagenFit img-fluid"
+        />
+        <div class="letrero-txt-lado-arriba-derecha peque">
+          <h2>Olivares Santos Grampha´s</h2>
+          <p class="fondo-opaco">
+            Cosechar  olivos, sueño hecho realidad
+          </p>
+        </div>
+        <div class="lista-centro">
+          <div class="posc-fondo-div-proxNvl">
+            <button onclick="cambioDivJuego('infoGrl_n3','infoGrl_n3_gms')" class="btn btn-warning">
+              Ver tutorial
+            </button>
+            <button onclick="inicioDivJuego('infoGrl_n3','n3_gms','n3',6)" class="btn btn-success" >
+              Comenzar a Jugar
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- inicio de ayuda gral del nivel juego oculto-->
+      <div id="infoGrl_n3_gms" style="display: none" class=" letrero-img-centro">
+        <section class="video_container">
+        <video id="n3_01" controls>
+          <source src="utls/imgs/gms/n3/n3_01.mp4" type="video/mp4" />
+          Formato no soprtado
+        </video>
+       </section>
+       <div class="d-grid col-10  mx-auto posc-fondo-div-StopVideo"  id="pasarNvl_3">
+        <button onclick="paraVideo_Jugar('n3')" class="btn btn-success ">
+              Comenzar a Jugar
+            </button>          
+       </div>
+      </div>
+      <!-- Nivel 3: COsecha de olivos -->
+      <div id="n3_gms" style="display: none">
+        <!-- aqui es algo -->
+        <div class="letrero-img-centro">
+          <img
+            src="utls/imgs/gms/terreno_original.jpg"
+            id="galeriaImg"
+            alt="Olive Farm"
+            class="imagenFit"
+          />
+          <div class="letrero-txt-lado-arriba">
+            <h2>Olivares Santos Grampha´s</h2>
+            <h4 id="n3_cabeza" class="fondo-opaco"></h4>
+          </div>
+  
+          <!-- seccion de acciones de juego justify-content-center-->
+          <div class="lista-centro" id="N3_GameSeccion">         
+            <!-- lugar n terreno <div  >class="letrero-txt-centro-abajo"-->
+            <div
+              id="n3_tierra_row"
+              class="posc-fondo-div-tierra"            
+            >
+              <img
+                src=""
+                alt="ads"
+                class="imagenScala60"
+                id="n3_1"
+                onclick="mostrarCambioEstado('6','local');"
+              />
+            </div>
+            <!-- fin lugar n terreno -->
+            <!-- lugar acciones sobre terreno  -->
+            <div
+              id="n3_herram_row"
+              class="posc-fondo-div-herra"           
+            >
+              <img
+                src="utls/imgs/gms/n3/herr_recmnl.jpg"
+                alt="ads"
+                class="imagenScala20Tool"
+                id="n3_h1"
+                onclick="accion_A_Realizar(7);"
+              />
+              <img
+                src="utls/imgs/gms/n3/herr_recsmmkn.jpg"
+                alt="asda"
+                class="imagenScala20Tool"
+                id="n3_h2"
+                onclick="accion_A_Realizar(8);"
+              />
+              <img
+                src="utls/imgs/gms/n3/herr_recmknk.jpg"
+                alt="asda"
+                class="imagenScala20Tool"
+                id="n3_h3"
+                onclick="accion_A_Realizar(9);"
+              />
+            </div>
+            <!-- fin lugar acciones sobre terreno  -->
+            <!-- pasar prox -->
+            <div  id="pasar-prox4" class="posc-fondo-div-proxNvl"  style="display: none"  >
+              <img src="utls/imgs/gms/n_globos.png" alt="" srcset="" id="n3_glob" class="imagenWebp">
+              <div>
+              <button onclick="inicioDivJuego('n3_gms','infoGrl_n4','n4',6)" class="btn btn-success btn-lg">
+                ¡Nivel vencido! Sigamos...
+              </button>
+              <button onclick="finDivJuego('n3_gms')" class="btn btn-secondary btn-lg">
+                ¿ Desea salir del juego ?
+              </button>
+              </div>
+              <!-- /fin de botones -->
+            </div>
+            <!-- fin pasar prox Nivel N4-->
+          </div>
+        </div>
+      </div>
+      <!-- fin de fotos y cosa -->
+       </div>
+      <!-- FIN  Nivel 3: Atebder plantación de olivos -->
+  
+ <!-- inicio de informacion gral juego nivel 4 oculto-->
+    <div id="nivel_4">
+      <div id="infoGrl_n4" style="display: none">
+        <img
+          src="utls/imgs/gms/n4/niños_aceiteoliva.jpg"
+          alt="Olive Farm"
+          class="imagenFit img-fluid"
+        />
+        <div class="letrero-txt-lado-arriba-derecha peque">
+          <h2>Olivares Santos Grampha´s</h2>
+          <p class="fondo-opaco">
+            La calidad tiene el precioso sentido del conocimiento
+          </p>
+        </div>
+        <div class="lista-centro">
+          <div class="posc-fondo-div-proxNvl">
+            <button onclick="cambioDivJuego('infoGrl_n4','infoGrl_n4_gms')" class="btn btn-warning">
+              Ver tutorial
+            </button>
+            <button onclick="inicioDivJuego('infoGrl_n4','n4_gms','n4',6)" class="btn btn-success" >
+              Comenzar a Jugar
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- inicio de ayuda gral del nivel juego oculto-->
+      <div id="infoGrl_n4_gms" style="display: none" class=" letrero-img-centro">
+        <section class="video_container">
+        <video id="n4_01" controls>
+          <source src="utls/imgs/gms/n4/n4_01.mp4" type="video/mp4" />
+          Formato no soprtado
+        </video>
+       </section>
+       <div  class="d-grid  col-10 mx-auto posc-fondo-div-StopVideo"  id="pasarNvl_4">
+        <button onclick="paraVideo_Jugar('n4')" class="btn btn-success ">
+              Comenzar a Jugar
+            </button>          
+       </div>
+      </div>
+      <!-- Nivel 4: Obtener aceite -->
+      <div id="n4_gms" style="display: none">
+        <!-- aqui es algo -->
+        <div class="letrero-img-centro">
+          <img
+            src="utls/imgs/gms/n4/refineria_local.jpg"
+            id="galeriaImg"
+            alt="Olive Farm"
+            class="imagenFit"
+          />
+          <div class="letrero-txt-lado-arriba">
+            <h2>Olivares Santos Grampha´s</h2>
+            <h4 id="n4_cabeza" class="fondo-opaco"></h4>
+          </div>
+  
+          <!-- seccion de acciones de juego justify-content-center-->
+          <div class="lista-centro" id="N4_GameSeccion">         
+            <!-- lugar n terreno <div  >class="letrero-txt-centro-abajo"-->
+            <div
+              id="n4_tierra_row"
+              class="posc-fondo-div-tierra"            
+            >
+              <img
+                src=""
+                alt="ads"
+                class="imagenScala60"
+                id="n4_1"
+                onclick="mostrarCambioEstado('9','local');"
+              />
+            </div>
+            <!-- fin lugar n terreno -->
+            <!-- lugar acciones sobre terreno  -->
+            <div
+              id="n4_herram_row"
+              class="posc-fondo-div-herra"           
+            >
+              <img
+                src="utls/imgs/gms/n4/n4_herr_slcsprc.jpg"
+                alt="ads"
+                class="imagenScala20Tool"
+                id="n4_h1"
+                onclick="accion_A_Realizar(10);"
+              />
+              <img
+                src="utls/imgs/gms/n4/n4_herr_indstr.jpg"
+                alt="asda"
+                class="imagenScala20Tool"
+                id="n4_h2"
+                onclick="accion_A_Realizar(11);"
+              />
+              <img
+                src="utls/imgs/gms/n4/n4_herr_fltrng.jpeg"
+                alt="asda"
+                class="imagenScala20Tool"
+                id="n4_h3"
+                onclick="accion_A_Realizar(12);"
+              />
+            </div>
+            <!-- fin lugar acciones sobre terreno  -->
+            <!-- pasar prox -->
+            <div    id="pasar-proxCrdts"  class="posc-fondo-div-proxNvl"  style="display: none"  >
+              <img src="utls/imgs/gms/n_globos.png" alt="" id="n4_glob" class="imagenWebp">
+              <div>
+                <button onclick="finDivJuego('n4_gms')" class="btn btn-success btn-lg">
+                  ¡Nivel vencido!¡Juego vencido!Ver final.
+                </button>
+                <button onclick="Salir()" class="btn btn-secondary btn-lg">
+                  ¿ Desea salir del juego ?
+                </button>
+              </div>
+              <!-- fin de botones -->
+            </div>
+            <!-- fin pasar prox Creditos-->
+          </div>
+        </div>
+      </div>
+      <!-- fin de fotos y cosa -->
+       </div>
+      <!-- FIN  Nivel 4: Obtener aceite -->
+  
+    <!-- inicio de informacion gral juego nivel X oculto-->
+    <div id="nivel_X">
+    <div id="infoGrl_nX" style="display: none">
+      <img src="utls/imgs/gms/img-vst-08.jpg"
+        id="infoGrl_nX_img"
+        alt="Olive Farm"
+        class="imagenFit"
+      />
+      <div class="letrero-txt-lado-arriba peque">
+        <h2>Olivares Santos Grampha´s</h2>
+        <p id="infoGrl_nX_p" class="fondo-opaco">
+          Ven a visitarnos!
+        </p>
+      </div>
+      <div class="lista-centro">
+        <div class="posc-fondo-div-proxNvl">
+          <button onclick="Salir()" class="btn btn-success" >
+            Salir al sitio principal.
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- fin InfoGrl_nX -->
+    
+    </div>
+    <!-- FIN  Nivel X: ...de olivos -->
+
+    <!-- end poner el juego -->
   </body>
   <script type="text/javascript" src="utls/js/jquery.min.js"></script>
   <script type="text/javascript" src="utls/js/bootstrap.bundle.min.js"></script>

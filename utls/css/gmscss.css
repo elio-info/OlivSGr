@@ -32,7 +32,7 @@
 }
 
 .fondo-opaco{
-    background-color: rgb(127 255 212 / 70%);
+    background-color: rgba(127, 255, 212, 0.496);
     color: #0f5132;
     text-align: justify ;
     font-size: 1.5rem;
@@ -53,13 +53,27 @@
     top: 5%;
     justify-content: inherit;
 }
+
+.posc-fondo-div-StopVideo{
+    position: absolute;
+    bottom: 5%;
+    justify-content: inherit;
+}
+
+.posc-fondo-div-Salida{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
 .posc-fondo-div-proxNvl{
     position: absolute;
     bottom: 15%;
+    text-align: center;
 }
 .posc-fondo-div-tierra{
-position: absolute;
-    bottom: 6rem;
+    position: absolute;
+    bottom: 20cqb;/* posicion 6rem, probando con 20cqb*/
+    text-align: center;
 }
 .posc-fondo-div-herra{
     position: absolute;bottom: 2rem;
@@ -74,13 +88,24 @@ position: absolute;
     height: 100vh; /* La imagen ocupa el 100% del alto del div */    
 }
 .imagenWebp{
-	width: 100%; /* La imagen ocupa el 100% del ancho del div */
-    height: 95%; /* La imagen ocupa el 100% del alto del div */    
+	width: 65%; /* La imagen ocupa el 65% del ancho del div */
+    height: 95%; /* La imagen ocupa el 95% del alto del div */    
 }
 
 .imagenScala60 {
-	height: 6rem;
-	width: 6rem;
+	height:8rem ;/* probando con 6rem,15rem amplia horizontal,40cqb*/
+	width: 6rem;/* probando con 6rem,8rem amplia vertical,25cqh*/
+}
+
+.imagenScala{
+    @media only screen and (max-width:199px) {
+        height: 7rem;
+        width: 2rem;
+    }
+    @media only screen and (min-width:200px) and (max-width:1702px)  {
+        height: 11rem;
+        width: 15%;
+    }
 }
 
 .imagenScala20Tool {
