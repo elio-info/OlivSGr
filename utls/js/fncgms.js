@@ -7,7 +7,7 @@ let letreros_nvl =
 {
   'n1':
   {
-    cabeza: `Comenzaremos plantando nuestros olivos y enfrentando emocionantesdesaf&iacute;os en el camino. Cada obst&aacute;culo que superemosnos acercar&aacute; m&aacute;s a ver crecer nuestro primer retoño.
+    cabeza: `Comenzaremos plantando nuestros olivos y enfrentando emocionantesdesaf&iacute;os en el camino. Cada obst&aacute;culo que superemonos acercar&aacute; m&aacute;s a ver crecer nuestro primer retoño.
     <br>
     ¡ Juntos, descubriremos la magia de cuidar la tierra y disfrutar de la naturaleza !
       <br>
@@ -32,7 +32,11 @@ let letreros_nvl =
     final:9 //acciones[9]='recmknk'
   },
   'n4': {
-    cabeza: 'Se elabora el aceite de oliva y se seleccionan las aceitunas que se destinan al mercado para su consumo',
+    cabeza: `<b>¡ Hola pequeños exploradores'</b> ¿Sabían que detrás de cada grano de gota de aceite de oliva hay un emocionante proceso?
+    <ol>
+    <li>Primero se elabora el aceite de los granos de oliva</li>
+    <li>Luego se seleccionan las aceitunas más deliciosas para el disfrute de todos en el mercado</li>
+    </ol>`,
     lugar:'oil',
     fig_inicio:'n4_oil_campo.jpg',
     final:12, //acciones[12]='acc',
