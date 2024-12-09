@@ -18,7 +18,9 @@ let letreros_nvl =
   },
 
   'n2': {
-    cabeza: 'Debemos conservar lo que plantamos',
+    cabeza: `Es importante que continuemos disfrutando de nuestras actividades.Revisemos y cuidemos nuestras posturas mientras jugamos.
+    <br>
+    Es esencial conservar aquello que hemos plantado. `,
     lugar:'planta',
     fig_inicio:'n2_planta con hierba.jpg',
     final:6 //acciones[6]='poda'    

@@ -44,7 +44,7 @@
     border: #0f5132;
 }
 .peque{
-    /* width: 40%; height: auto; */
+    /* width: 40%;*/ height: auto; 
 }
 
 .letrero-txt-centro-abajo{
@@ -103,6 +103,7 @@
 	width: 6rem;/* probando con 6rem,8rem amplia vertical,25cqh*/
 }
 
+
 .imagenScala{
     @media only screen and (max-width:199px) {
         height: 7rem;
@@ -113,14 +114,20 @@
         width: 15%;
     }
 }
-
+.imagenScala :hover{
+    opacity: .57 ;
+    transform: scale(1.5 1.5);
+}
 .imagenScala20Tool {
 	height: 60px;
 	width: 90px;
 	/* padding-left: 0;
 	padding-right: 0; */
 }
-
+.imagenScala20Tool :hover{
+    opacity: .57 ;
+    transform: scale(1.5 1.5);
+}
 .fondo_casa{
     src: url("../imgs/gms/n1_terreno_original.jpg");
 }
