@@ -23,23 +23,28 @@
 .letrero-txt-lado-arriba{
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 5%;right: 5%;
+    background-color: #198754;
+    color: white;
 }
 .letrero-txt-lado-arriba-derecha{
     position: absolute;
     top: 5%;
     right: 5%;
+    background-color: #198754;
+    color: white;
 }
 
 .fondo-opaco{
-    background-color: rgba(127, 255, 212, 0.496);
+    background-color: rgba(127, 255, 212, 0.75);
     color: #0f5132;
     text-align: justify ;
-    font-size: 1.5rem;
-    padding:  5%;
+    font-size: 1rem;
+    padding: 1%;
+    border: #0f5132;
 }
 .peque{
-    width: 40%; height: auto;
+    /* width: 40%; height: auto; */
 }
 
 .letrero-txt-centro-abajo{
@@ -62,8 +67,9 @@
 
 .posc-fondo-div-Salida{
     position: absolute;
-    bottom: 5%;
-    left: 5%;
+    bottom: -25px;
+    right: -120px;
+    scale: .25;
 }
 .posc-fondo-div-proxNvl{
     position: absolute;

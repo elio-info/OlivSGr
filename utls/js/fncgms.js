@@ -7,7 +7,11 @@ let letreros_nvl =
 {
   'n1':
   {
-    cabeza: 'Para tener olivos, primero hay que plantar',
+    cabeza: `Comenzaremos plantando nuestros olivos y enfrentando emocionantesdesaf&iacute;os en el camino. Cada obst&aacute;culo que superemosnos acercar&aacute; m&aacute;s a ver crecer nuestro primer retoño.
+    <br>
+    ¡ Juntos, descubriremos la magia de cuidar la tierra y disfrutar de la naturaleza !
+      <br>
+      ¡ Es hora de jugar y aprender !`,
     lugar:'tierra',
     fig_inicio:'n1_tierra sin arar.jpg',
     final:3 //acciones[3]='regad'

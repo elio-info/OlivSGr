@@ -40,7 +40,7 @@
       </div>
       <div class="lista-centro">
         <div class="posc-fondo-div-proxNvl">
-          <button onclick="Salir()">Salir</button>
+          
           <button onclick="cambioDivJuego('portada_gms','infoGrl_n1')">
             Jugar
           </button>
@@ -51,7 +51,8 @@
             <option value="4">¡Nivel 4!</option>
             <option value="5">Probar</option>
           </select>
-        </div>
+        
+        <img src="utls/imgs/gms/grls/salidaRojo.png" onclick="Salir()" style="scale: .25;"></div>
       </div>
     </div>
     <!-- fin de portada juego -->
@@ -65,12 +66,11 @@
       />
       <div class="letrero-txt-lado-arriba peque">
         <h2>Olivares Santos Grampha´s</h2>
-        <p class="fondo-opaco">
-          Toda niñez debe ser capaz de organizar las diferentes actividades en
-          una finca de olivos, comenzando desde la etapa de plantación de olivos
-          venciendo los diferentes obstáculos que se les presentan, hasta el
-          logro del retoño.
-        </p>
+          <p  class="fondo-opaco">
+            ¡ Bienvenidos a la ***Finca de los Olivos***!Aqu&iacute;, los pequeños aventureros pueden conertirse en **grandes agricultores**.          
+          <br>
+            *¿Listos para la aventura?*
+          </p>        
       </div>
       <div class="lista-centro">
         <div class="posc-fondo-div-proxNvl">
@@ -109,7 +109,7 @@
         />
         <div class="letrero-txt-lado-arriba">
           <h2>Olivares Santos Grampha´s</h2>
-          <h4 id="n1_cabeza" class="fondo-opaco"></h4>
+          <p id="n1_cabeza" class="fondo-opaco"></p>
         </div>
 
         <!-- seccion de acciones de juego justify-content-center-->
@@ -156,7 +156,7 @@
             />
           </div>
           <div id="Salida" class="posc-fondo-div-Salida">
-            <button >type="reset"</button>
+            <img src="utls/imgs/gms/grls/salidaRojo.png" onclick="finDivJuego('n1_gms')">
           </div>
           <!-- fin lugar acciones sobre terreno  -->
           <!-- pasar prox -->
@@ -277,6 +277,9 @@
               onclick="accion_A_Realizar(6);"
             />
           </div>
+          <div id="Salidan2" class="posc-fondo-div-Salida">
+            <img src="utls/imgs/gms/grls/salidaRojo.png" onclick="finDivJuego('n2_gms')">
+          </div>
           <!-- fin lugar acciones sobre terreno  -->
           <!-- pasar prox -->
           <div id="pasar-prox3" class="posc-fondo-div-proxNvl"  style="display: none"  >
@@ -396,6 +399,9 @@
                 onclick="accion_A_Realizar(9);"
               />
             </div>
+            <div id="Salida3" class="posc-fondo-div-Salida">
+              <img src="utls/imgs/gms/grls/salidaRojo.png" onclick="finDivJuego('n3_gms')">
+            </div>
             <!-- fin lugar acciones sobre terreno  -->
             <!-- pasar prox -->
             <div  id="pasar-prox4" class="posc-fondo-div-proxNvl"  style="display: none"  >
@@ -514,6 +520,9 @@
                 id="n4_h3"
                 onclick="accion_A_Realizar(12);"
               />
+            </div>
+            <div id="Salida4" class="posc-fondo-div-Salida">
+              <img src="utls/imgs/gms/grls/salidaRojo.png" onclick="finDivJuego('n4_gms')">
             </div>
             <!-- fin lugar acciones sobre terreno  -->
             <!-- pasar prox -->
