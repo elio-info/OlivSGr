@@ -78,11 +78,11 @@
 }
 .posc-fondo-div-tierra{
     position: absolute;
-    bottom: 20cqb;/* posicion 6rem, probando con 20cqb*/
+    bottom: 20%;/* posicion 6rem, probando con 20cqb*/
     text-align: center;
 }
 .posc-fondo-div-herra{
-    position: absolute;bottom: 2rem;
+    position: absolute;bottom: 4%;text-align: center;
 }
 .posc-fondo-div-letrero-guia{
    position: absolute; bottom: 14%;
@@ -104,11 +104,12 @@
 }
 
 
-.imagenScala{
+.imagenScala {
     @media only screen and (max-width:199px) {
         height: 7rem;
         width: 2rem;
     }
+
     @media only screen and (min-width:200px) and (max-width:1702px)  {
         height: 15%;
         width: 15%;
@@ -130,14 +131,24 @@
 }
 
 .imagenScala20Tool {
-	height: 60px;
-	width: 90px;
-	/* padding-left: 0;
-	padding-right: 0; */
+	/* height: 100px;
+	width: 100px; */
+    opacity: .9 ;
+    transform: scale(.5);
+
+    @media only screen and (max-width:420px) {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    @media only screen and (min-width:421px) and (max-width:1702px)  {
+        height: 6rem;
+        width: 6rem;
+    }
 }
-.imagenScala20Tool :hover{
-    opacity: .57 ;
-    transform: scale(1.5 1.5);
+.imagenScala20Tool:hover {
+    opacity: 1 ;
+    transform: scale(.7);
 }
 .fondo_casa{
     src: url("../imgs/gms/n1_terreno_original.jpg");
