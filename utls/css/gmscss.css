@@ -67,9 +67,9 @@
 
 .posc-fondo-div-Salida{
     position: absolute;
-    bottom: -25px;
-    right: -120px;
-    scale: .25;
+    bottom: 2%;
+    right: 2%;
+    /* scale: .25; */
 }
 .posc-fondo-div-proxNvl{
     position: absolute;
@@ -110,14 +110,25 @@
         width: 2rem;
     }
     @media only screen and (min-width:200px) and (max-width:1702px)  {
-        height: 11rem;
+        height: 15%;
         width: 15%;
     }
 }
-.imagenScala :hover{
-    opacity: .57 ;
-    transform: scale(1.5 1.5);
+
+.imagenEnfoque {
+    opacity: .7;
+    transform:scale(0.76);    
 }
+.imagenEnfoque:hover {
+    opacity: 1;
+    /* -webkit-transform:scale(0.25);
+    -moz-transform:scale(0.25);
+    -ms-transform:scale(0.25);
+    -o-transform:scale(0.25);*/
+    transform:scale(0.9); 
+    
+}
+
 .imagenScala20Tool {
 	height: 60px;
 	width: 90px;
