@@ -103,7 +103,6 @@
 	width: 6rem;/* probando con 6rem,8rem amplia vertical,25cqh*/
 }
 
-
 .imagenScala {
     @media only screen and (max-width:199px) {
         height: 7rem;
@@ -113,6 +112,18 @@
     @media only screen and (min-width:200px) and (max-width:1702px)  {
         height: 15%;
         width: 15%;
+    }
+}
+.imagenScala:hover {
+    
+	@media only screen and (max-width:199px) {
+        height: 5.8rem;
+        width: 1.8rem;
+    }
+
+    @media only screen and (min-width:200px) and (max-width:1702px)  {
+        height: 13%;
+        width: 13%;
     }
 }
 
