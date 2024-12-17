@@ -29,8 +29,8 @@ let letreros_nvl =
   {
     cabeza: 'Cosechar  olivos, sueño hecho realidad',
     lugar:'rama',
-    fig_Gral:'ninos_arbol_recolect.jpg',
-    fig_inicio:'n3_rama_baja.jpg',
+    fig_Gral:'ninos_arbol_recolect.webp',
+    fig_inicio:'n3_rama_baja.webp',
     final:9 //acciones[9]='recmknk'
   },
   'n4': {
