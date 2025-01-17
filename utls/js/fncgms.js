@@ -7,7 +7,7 @@ let letreros_nvl =
 {
   'n1':
   {
-    cabeza: `Comenzaremos plantando nuestros olivos y enfrentando emocionantesdesaf&iacute;os en el camino. Cada obst&aacute;culo que superemonos acercar&aacute; m&aacute;s a ver crecer nuestro primer retoño.
+    cabeza: `Comenzaremos plantando nuestros olivos y enfrentando emocionantes desaf&iacute;os en el camino. Cada obst&aacute;culo que superemonos acercar&aacute; m&aacute;s a ver crecer nuestro primer retoño.
     <br>
     ¡ Juntos, descubriremos la magia de cuidar la tierra y disfrutar de la naturaleza !
       <br>
