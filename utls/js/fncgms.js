@@ -11,7 +11,12 @@ let letreros_nvl =
     <br>
     ¡ Juntos, descubriremos la magia de cuidar la tierra y disfrutar de la naturaleza !
       <br>
-      ¡ Es hora de jugar y aprender !`,
+      ¡ Es hora de jugar y aprender !      
+      <ol>
+        <li>Debemos arar la tierra.</li>
+        <li>Plantar las posturas.</li>
+        <li>Regarlas para que cerzcan.</li>
+      </ol>      `,
     lugar:'tierra',
     fig_inicio:'n1_tierra sin arar.jpg',
     final:3 //acciones[3]='regad'
@@ -20,14 +25,25 @@ let letreros_nvl =
   'n2': {
     cabeza: `Es importante que continuemos disfrutando de nuestras actividades.Revisemos y cuidemos nuestras posturas mientras jugamos.
     <br>
-    Es esencial conservar aquello que hemos plantado. `,
+    Es esencial conservar aquello que hemos plantado. 
+    <ol>
+      <li>Debemos limpiar primero las hierbas que molestan a las posturas...</li>
+      <li>Para que crezcan sanas debemos quitar las plagas. Usemos insecticidas.</li>
+      <li>Qu&iacute;temos los hojas enfermas. Podar con cuidado...</li>
+    </ol>`,
     lugar:'planta',
     fig_inicio:'n2_planta con hierba.jpg',
     final:6 //acciones[6]='poda'    
   },
   'n3':
   {
-    cabeza: 'Cosechar  olivos, sueño hecho realidad',
+    cabeza: `Cosechar  olivos, sueño hecho realidad.
+    <ol>
+      <li>Cosechemos a baja, de forma manual.</li>
+      <li>Arbustos medianos.</li>
+      <li>Stir both mixtures together.</li>      
+    </ol>
+    `,
     lugar:'rama',
     fig_Gral:'ninos_arbol_recolect.webp',
     fig_inicio:'n3_rama_baja.webp',
