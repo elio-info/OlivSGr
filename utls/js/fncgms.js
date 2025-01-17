@@ -40,8 +40,8 @@ let letreros_nvl =
     cabeza: `Cosechar  olivos, sueño hecho realidad.
     <ol>
       <li>Cosechemos a baja, de forma manual.</li>
-      <li>Arbustos medianos.</li>
-      <li>Stir both mixtures together.</li>      
+      <li>Arbustos medianos, debemos usarl formas semimecanizadas..</li>
+      <li>Usaremos para para las robustas, formas mecanizadas.</li>      
     </ol>
     `,
     lugar:'rama',
@@ -52,8 +52,9 @@ let letreros_nvl =
   'n4': {
     cabeza: `<b>¡ Hola pequeños exploradores'</b> ¿Sabían que detrás de cada grano de gota de aceite de oliva hay un emocionante proceso?
     <ol>
-    <li>Primero se elabora el aceite de los granos de oliva</li>
-    <li>Luego se seleccionan las aceitunas más deliciosas para el disfrute de todos en el mercado</li>
+    <li>Primero separaremos las malas de las buenas. Llenar con las buenas las canastas azules.</li>
+    <li>Luego prensar para obtener aceite de las olivas</li>
+    <li> Debemos filtrar el aceite para mejorar el producto..</li>
     </ol>`,
     lugar:'oil',
     fig_inicio:'n4_oil_campo.jpg',
