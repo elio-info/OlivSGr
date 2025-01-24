@@ -1,8 +1,11 @@
+// import * as AudioClass from "./audio.js"
 let terrenos_estados = []
 let acc_a_realizar = '',
   acciones = ['nada', 'arar', 'semb', 'regad','chap','insect','poda','recmnl','recsmmkn','recmknk','slcsprc','indstr','fltrng']
 let img_ruta_src = "utls/imgs/gms/"
 let tiempo = 6000
+let clockJuego
+let audioBien,audioMal,audioMusica
 let letreros_nvl =
 {
   'n1':
@@ -83,6 +86,12 @@ function vaciarElto(elto) {
 
 function mostrarElto(elto) {
   $('#' + elto).classList.remove('oculto')
+}
+
+function cargarElts(params) {
+  audioBien= new audioJuego('utls/wav/yuju.wav')
+  audioMal= new audioJuego('utls/wav/nokid.wav')
+  audioMusica= new audioJuego('utls/wav/kidsplaying.mp3')
 }
 
 function pasarA(params) {
@@ -231,6 +240,13 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
    // pongo letrero dentro en la pantalla juego Nivel ?
   ponerLetreroGuiaNivel( nivel, 'c')
 
+  // sonar musica de juego
+  //sonarJuego= 
+ // audioMusica.sonarJuego()
+
+  // comienza reloj
+  this.clockJuego= new CanvasClock('clock_'+nivel);
+ 
 }
 
 function ponerFotoSerieEnTierra(lugarPoner, cantRepetirImg, nvl, accionRecibe) {
@@ -257,7 +273,15 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
     terrenos_estados[num_trn]++
     img_terreno.src = img_ruta_src +nvl_trn+'/'+ nvl_trn + "_"+letreros_nvl[nvl_trn].lugar+"_" + acciones[acc_a_realizar] + ".jpg"
     acc_a_realizar = ''
+    // sonar todo bien
+    audioBien.sonarAudio()
   }
+  else {
+    // sonar todo mal
+    audioMal.sonarAudio()
+  }
+
+
   // si todos llegaron a la accion final
   let  specificCharacter=letreros_nvl[nvl_trn].final,
     count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
@@ -268,6 +292,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
       $('#pasar-prox'+ nxt).show()
       // mostrar foto de globos
 
+      audioMusica.callarJuego() //fin de juego y musica
     }
 }
 

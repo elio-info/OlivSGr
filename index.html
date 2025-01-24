@@ -19,11 +19,12 @@
     <!-- InstanceEndEditable -->
     <link href="utls/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="utls/css/ncarousel.css" />
+    <link href="utls/css/clock.css" rel="stylesheet" type="text/css" />
     <link href="utls/css/nmycss.css" rel="stylesheet" type="text/css" />
     <link href="utls/css/gmscss.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body onresize="displayDim('r');" onload="displayDim('l')">
+  <body >
     <!-- poner el juego     -->
     <!-- inicio de portada juego -->
     <div id="portada_gms">
@@ -110,9 +111,15 @@
           alt="Olive Farm"
           class="imagenFit"
         />
-        <div class="letrero-txt-lado-arriba">
+        <div class="row letrero-txt-lado-arriba">
           <h2>Olivares Santos Grampha´s</h2>
-          <p id="n1_cabeza" class="fondo-opaco"></p>
+          <div style="width: 80%;" >            
+            <p id="n1_cabeza" class="fondo-opaco"></p>
+          </div>
+          <div style="width: 20%;">
+            <canvas id="clock_n1" class="clock_dims"></canvas>
+          </div>
+          
         </div>
 
         <!-- seccion de acciones de juego justify-content-center-->
@@ -582,8 +589,19 @@
   </body>
   <script type="text/javascript" src="utls/js/jquery.min.js"></script>
   <script type="text/javascript" src="utls/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="utls/js/audio.js"></script>
   <script type="text/javascript" src="utls/js/cronos.js"></script>
   <script type="text/javascript" src="utls/js/funcs.js"></script>
   <script type="text/javascript" src="utls/js/fncgms.js"></script>
+  <script>
+    cargarElts()
+    document.addEventListener ('ready', function (e) {
+      
+      displayDim('r')
+    }
+  )
+  document.addEventListener ('resize',displayDim('r'))
+  
+  </script>
   <!-- InstanceEnd -->
 </html>
