@@ -1,106 +1,160 @@
-let time=0,running_time=false,
-    interval,initTime='00:00:00'
+ //reloj de internet
+ const canvasRl = document.getElementById('clock_n1');
+ const ctx = canvasRl.getContext('2d');
+ const radio=canvasRl.height / 4
+ 
+ // set the start point of the hour, minute and second hand to top
+ const threePIByTwo = (3 * Math.PI) / 2;
+ 
+ console.log(threePIByTwo);
+ 
+ let amOrPm = 'AM';
+ let clockAnimate;
+ 
+ const canvasBg = '#1C1C28';
+ 
+ // Define colors for hour, minute and second hand
+ const hourActiveColor = '#39D98A',
+   minuteActiveColor = '#3E7BFA',
+   secondActiveColor = '#FDAC42';
+ 
+ // Define inactive colors for hour, minute and second hand
+ const hourInactiveColor = '#3C4043',
+   minuteInactiveColor = '#2E3134',
+   secondInactiveColor = '#282A2D';
+ 
+ const timerBg = '#282A2D';
 
-function actualizarCronom(){
-  const horas=Math.floor(time/3600),
-        minutos= Math.floor((time % 3600 ) / 60) ,
-        segundos = time % 60
-        if (segundos%10 ==0) {
-            dbprr=document.getElementById('barr')           
-                dbprr.style.width=(10+time).toString()+"%"
-                dbprr.innerHTML=(10+time).toString()+"%"
-        }
-        if (time == 25 ) clearInterval(interval)
-    return `${String(horas).padStart(2,'0')}:${String(minutos).padStart(2,'0')}:${String(segundos).padStart(2,'0')}` 
+ let tiempo_JInterno,tiempo_JInterno_div4 ,tiempo_JInterno_ang_divX4
+ let tiempo_JInterno_inicio,tiempo_JInterno_etapas
+
+ function draw()
+ {
+   // Finding center point of canvas
+   const centerX = canvasRl.width / 2,
+     centerY = canvasRl.height / 2;
+ 
+   const date = new Date();
+ 
+   let hr = date.getHours();
+   let min = date.getMinutes();
+   let sec = date.getSeconds();
+   let ms = date.getMilliseconds();
+ 
+   if(hr > 12)
+   {
+     amOrPm = 'PM';
+     hr -= 12;
+   }
+ 
+   /* Defines how much radians each hand should move */
+   let radH = 0.000008333 * ( ( hr * 60 * 60 * 1000 ) + ( min * 60 * 1000 ) + ( sec * 1000 ) + ms );
+   let radM = 0.0001 * ( ( min * 60 * 1000 ) + ( sec * 1000 ) + ms );
+   let radS = 0.006 * ( ( sec * 1000 ) + ms );
+
+// balance de tiempo
+   if (tiempo_JInterno_inicio <= 1000 * tiempo_JInterno_div4){
+    if( tiempo_JInterno_etapas < 4) {
+      tiempo_JInterno_inicio += tiempo_JInterno_ang_divX4
+      }
+      else
+      {
+        window.cancelAnimationFrame(draw)
+        alert('se acabo')
+      }
+   }
+   else{
+    tiempo_JInterno_inicio = 0
+    tiempo_JInterno_etapas++    
+  }    
+    // console.log(`ang ${radS},seg ${rad(radS) + threePIByTwo}`);
+    let ang_radMinJuego = rad(tiempo_JInterno_etapas * 90 ) + threePIByTwo
+    let ang_radSegJuego = rad( tiempo_JInterno_inicio) + threePIByTwo 
+ 
+   // Draw Canvas
+   drawRect(0, 0, canvasRl.width, canvasRl.height, canvasBg);
+ 
+   // Hour Hand
+   //drawCircle(centerX, centerY, 110, 0, 360 , false, hourInactiveColor, 'stroke', 90);
+   //drawCircle(centerX, centerY, 110, threePIByTwo, rad(radH) + threePIByTwo, false, hourActiveColor, 'stroke', 90);
+   // My Game is Hour Hand
+   drawCircle(centerX, centerY, radio + 20, 0, 360 , false, hourInactiveColor, 'stroke', 90);
+   drawCircle(centerX, centerY, radio + 20, threePIByTwo, ang_radMinJuego , false, hourActiveColor, 'stroke', 90);
+   
+   // Minute Hand radio medio
+   drawCircle(centerX, centerY, radio, 0, 360, false, minuteInactiveColor, 'stroke', 50);
+   drawCircle(centerX, centerY, radio, threePIByTwo, ang_radSegJuego, false, minuteActiveColor, 'stroke', 50);
+   
+   // Second Hand radio menor
+   drawCircle(centerX, centerY,radio - 20, 0, 360, false, secondInactiveColor, 'stroke', 30);
+   drawCircle(centerX, centerY,radio - 20, threePIByTwo, rad(radS) + threePIByTwo, false, secondActiveColor, 'stroke', 30);
+   
+ 
+   // Digital Timer
+   //drawCircle(centerX, centerY, 90, 0, 360, false, timerBg, 'fill', '50');
+   drawText(`${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")} ${amOrPm}`, canvasRl.width / 2 - 60, canvasRl.height / 2 + 15, '#ffffff', '28px');
+ 
+   window.requestAnimationFrame(draw);
+ }
+ 
+ function initClock(tiempo_Juego_minutos)
+ {
+  //  canvasRl.width = canvasRl.clientWidth - 35;
+  //  canvasRl.height = canvasRl.clientHeight - 45;
+    tiempo_JInterno = tiempo_Juego_minutos  //para saber cdo llego al final en tiempo
+    tiempo_JInterno_div4 = tiempo_Juego_minutos / 4 //para saber en cuanto puedo dividir el tiempo de juego para 4 oprtunidades de tiempo
+    tiempo_JInterno_ang_divX4 = ( 360*tiempo_JInterno_div4)/ 10000  //angulo para mostrar el reloj en seg de juego
+    tiempo_JInterno_inicio = 0 //conteo del tiempo en mseg
+    tiempo_JInterno_etapas = 0 //conteo de las 4 etapas
+
+    console.log(tiempo_JInterno,tiempo_JInterno_div4, tiempo_JInterno_ang_divX4);
+    
+   // This calls the draw function repeatedly at a rate of 60 times per second
+  clockAnimate=  window.requestAnimationFrame(draw);	
+ }
+ 
+ 
+ 
+function clockStopAnimate() {
+  window.cancelAnimationFrame(clockAnimate)
 }
-function initCronom(lugar_txtCntxt){
-  if (!running_time) {
-    running_time=true
-    interval= setInterval(
-        function (){
-          time++
-          lugar_txtCntxt.innerHTML=actualizarCronom()
-        },
-        1000 // 1 seg
-    )
-  }
-}
-function stopCronom(lugar_txtCntxt){
-  clearInterval(interval)
-  running_time=false
-  lugar_txtCntxt.innerHTML=initTime
-}
-function resetCronom(lugar_txtCntxt){
-  lugar_txtCntxt.innerHTM=stopCronom(L)
-  time=0
-  lugar_txtCntxt.innerHTM=initCronom()  
-}
-
-
-//clock draw
-let clockCanvas,clockCntx,centerX,centerY
-// set the start point of the hour, minute and second hand to top
-const threePIByTwo = (3 * Math.PI) / 2;
-const hourActiveColor = '#39D98A',hourInactiveColor = '#3C4043'
-const date = new Date();
-class CanvasClock {
-  constructor(canvasId) {
-    this.clockCanvas=document.getElementById(canvasId)
-    this.clockCntx=this.clockCanvas.getContext('2d')
-    this.centerX = this.clockCanvas.width / 2,
-		this.centerY = this.clockCanvas.height / 2;
-
-/* Defines how much radians each hand should move */
-  let hr = date.getHours();
-	let min = date.getMinutes();
-	let sec = date.getSeconds();
-	let ms = date.getMilliseconds();
-	let radH = 0.000008333 * ( ( hr * 60 * 60 * 1000 ) + ( min * 60 * 1000 ) + ( sec * 1000 ) + ms );
-    // Hour Hand
-	drawCircle(this.clockCntx,this.centerX, this.centerY, 110, 0, 360 , false, hourInactiveColor, 'stroke', 90);
-	drawCircle(this.clockCntx,this.centerX, this.centerY, 110, threePIByTwo, rad(radH) + threePIByTwo, false, hourActiveColor, 'stroke', 90);
-  
-  } 
-
-
-}
-// Convert degree to radians
-function rad(deg){
-	return  (Math.PI / 180) * deg;
-}
-
-function drawText(ctx,text, x, y, color, size) {
-	ctx.font = `${size} "Poppins"`;
-	ctx.fillStyle = color;
-	ctx.fillText(text, x, y);
-}
-
-function drawRect(ctx,x, y, width, height, color) {
-	ctx.fillStyle = color;
-	ctx.fillRect(x, y, width, height);
-}
-
-function drawArc(ctx,x, y, radius, start, end, clockwise)
-{
-	ctx.beginPath();
-	ctx.arc(x, y, radius, start, end, clockwise);
-}
-
-function drawCircle(ctx,x, y, radius, start, end, clockwise, color, type, thickness) {
-	switch (type) {
-		case 'fill':
-			ctx.fillStyle = color;
-			drawArc(ctx,x, y, radius, start, end, clockwise)
-			ctx.fill();
-			break;
-		case 'stroke':
-			ctx.strokeStyle = color;
-			ctx.lineWidth = thickness;
-			drawArc(ctx,x, y, radius, start, end, clockwise)
-			ctx.stroke();
-			break
-	}
-}
-
-
-
+ 
+ // Convert degree to radians
+ function rad(deg){
+   return  (Math.PI / 180) * deg;
+ }
+ 
+ function drawText(text, x, y, color, size) {
+   ctx.font = `${size} "Poppins"`;
+   ctx.fillStyle = color;
+   ctx.fillText(text, x, y);
+ }
+ 
+ function drawRect(x, y, width, height, color) {
+   ctx.fillStyle = color;
+   ctx.fillRect(x, y, width, height);
+ }
+ 
+ function drawArc(x, y, radius, start, end, clockwise)
+ {
+   ctx.beginPath();
+   ctx.arc(x, y, radius, start, end, clockwise);
+ }
+ 
+ function drawCircle(x, y, radius, start, end, clockwise, color, type, thickness) {
+   switch (type) {
+     case 'fill':
+       ctx.fillStyle = color;
+       drawArc(x, y, radius, start, end, clockwise)
+       ctx.fill();
+       break;
+     case 'stroke':
+       ctx.strokeStyle = color;
+       ctx.lineWidth = thickness;
+       drawArc(x, y, radius, start, end, clockwise)
+        ctx.fill();
+       ctx.stroke();
+       break
+   }
+ }
+       

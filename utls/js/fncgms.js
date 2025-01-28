@@ -3,7 +3,8 @@ let terrenos_estados = []
 let acc_a_realizar = '',
   acciones = ['nada', 'arar', 'semb', 'regad','chap','insect','poda','recmnl','recsmmkn','recmknk','slcsprc','indstr','fltrng']
 let img_ruta_src = "utls/imgs/gms/"
-let tiempo = 6000
+let tiempo = 0,comenzarJuego=false,
+  tiempo_de_juego_minutos=2 //20 seg
 let clockJuego
 let audioBien,audioMal,audioMusica
 let letreros_nvl =
@@ -244,10 +245,22 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
   //sonarJuego= 
  // audioMusica.sonarJuego()
 
+  
+}
+
+function contarTiempo(nivel){
   // comienza reloj
-  this.clockJuego= new CanvasClock('clock_'+nivel);
+  if (!comenzarJuego){
+    comenzarJuego=!comenzarJuego
+    // alert(tiempo_de_juego_minutos)
+    init(5)
+    // clockJuego= new CanvasClock('clock_'+nivel,tiempo_de_juegoSegundos);
+  // clockJuego.initCronom()
+  }
+ 
  
 }
+
 
 function ponerFotoSerieEnTierra(lugarPoner, cantRepetirImg, nvl, accionRecibe) {
   vaciarElto(lugarPoner)
@@ -279,6 +292,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
   else {
     // sonar todo mal
     audioMal.sonarAudio()
+    clockJuego.stopCronom()
   }
 
 
@@ -292,7 +306,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
       $('#pasar-prox'+ nxt).show()
       // mostrar foto de globos
 
-      audioMusica.callarJuego() //fin de juego y musica
+      audioMusica.play() //fin de juego y musica
     }
 }
 
