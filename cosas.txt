@@ -7,3 +7,11 @@ haz
 * poner los pasos de lo que debe de hacer 
 * señalar cdo hace algo mal
 poner los puntos que va obteniendo
+
+
+reloj:
+- dividir el tiempo en 4. [mostrara el tiempo corriendo seg:min] 
+
+avance:
+- se le mostrara las estrellas o globlos q los que tendra como obsequio
+- se llenara en f(logros)

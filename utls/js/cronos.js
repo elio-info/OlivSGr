@@ -26,7 +26,9 @@
  const timerBg = '#282A2D';
 
  let tiempo_JInterno,tiempo_JInterno_div4 ,tiempo_JInterno_ang_divX4
- let tiempo_JInterno_inicio,tiempo_JInterno_etapas
+ let tiempo_JInterno_inicio,tiempo_JInterno_etapas,
+      seg_aux = 0,min_aux //para comprobar que psao el sug y el min segun mi parametro interno
+ let tiempo_de_juego_Segundos=0,tiempo_de_juego_Minutos=0
 
  function draw()
  {
@@ -52,33 +54,32 @@
    let radM = 0.0001 * ( ( min * 60 * 1000 ) + ( sec * 1000 ) + ms );
    let radS = 0.006 * ( ( sec * 1000 ) + ms );
 
-   let myt=1000 * tiempo_JInterno_div4
-
+  //  tiempos
+   if (sec != tiempo_de_juego_Segundos) {
+    seg_aux++
+    tiempo_de_juego_Segundos = sec  
+    console.log(` sec ${sec }  ts ${tiempo_de_juego_Segundos}  sa ${seg_aux}`);
+      
+   }
+    if (seg_aux > tiempo_JInterno_div4) {
+    seg_aux=0    
+   }
 // balance de tiempo
 
     // console.log(`ms ${ms},seg ${sec}, t ${tiempo_JInterno_inicio}`);
     let ang_radMinJuego = rad(tiempo_JInterno_etapas * 90 ) + threePIByTwo
-    let ang_radSegJuego = rad( tiempo_JInterno_inicio/myt) + threePIByTwo 
+    let ang_radSegJuego = rad( seg_aux) + threePIByTwo 
  
    // Draw Canvas
    drawRect(0, 0, canvasRl.width, canvasRl.height, canvasBg);
  
-   // Hour Hand
-   //drawCircle(centerX, centerY, 110, 0, 360 , false, hourInactiveColor, 'stroke', 90);
-   //drawCircle(centerX, centerY, 110, threePIByTwo, rad(radH) + threePIByTwo, false, hourActiveColor, 'stroke', 90);
+   
    // My Game is Hour Hand
-   drawCircle(centerX, centerY, radio + 20, 0, 360 , false, hourInactiveColor, 'stroke', 90);
-   drawCircle(centerX, centerY, radio + 20, threePIByTwo, ang_radMinJuego , false, hourActiveColor, 'stroke', 90);
-   
+    drawClockhands(centerX, centerY, radio + 20 ,ang_radMinJuego,90,hourInactiveColor, hourActiveColor)
    // Minute Hand radio medio
-   drawCircle(centerX, centerY, radio, 0, 360, false, minuteInactiveColor, 'stroke', 50);//ang_radSegJuego
-   drawCircle(centerX, centerY, radio, threePIByTwo, ang_radSegJuego, false, minuteActiveColor, 'stroke', 50);
+    drawClockhands(centerX, centerY, radio,ang_radSegJuego,50,minuteInactiveColor, minuteActiveColor)
    
-   // Second Hand radio menor
-   drawCircle(centerX, centerY,radio - 20, 0, 360, false, secondInactiveColor, 'stroke', 30);
-   drawCircle(centerX, centerY,radio - 20, threePIByTwo, rad(radS) + threePIByTwo, false, secondActiveColor, 'stroke', 30);
-   
- 
+  
    // Digital Timer
    //drawCircle(centerX, centerY, 90, 0, 360, false, timerBg, 'fill', '50');
    drawText(`${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")} ${amOrPm}`, canvasRl.width / 2 - 60, canvasRl.height / 2 + 15, '#ffffff', '28px');
@@ -106,6 +107,23 @@
       tiempo_JInterno_etapas++    
       clockAnimate=requestAnimationFrame(draw);
     }   
+ }
+
+ /**
+  * Dibujar la manecilla del reloj
+  * @param {int} centerX posicion en X
+  * @param {int} centerY posicion en Y
+  * @param {float} radio_hora 
+  * @param {float} ang_hora 
+  * @param {int} grueso 
+  * @param {color} colorInactivo 
+  * @param {color} colorActivo 
+  */
+ function drawClockhands(centerX, centerY,radio_hora,ang_hora,grueso,colorInactivo,colorActivo) {
+  // Second Hand radio menor
+  drawCircle(centerX, centerY,radio_hora, 0, 360, false, colorInactivo, 'stroke', grueso);
+  drawCircle(centerX, centerY,radio_hora, threePIByTwo, ang_hora, false, colorActivo, 'stroke',grueso);
+  
  }
  
  function initClock(tiempo_Juego_minutos)
@@ -144,7 +162,9 @@
  }
  
  
- 
+ /**
+  * Detener el tiempo de llamada
+  */
 function clockStopAnimate() {
   cancelAnimationFrame(clockAnimate)
 }
