@@ -9,7 +9,7 @@
  console.log(threePIByTwo);
  
  let amOrPm = 'AM';
- let clockAnimate;
+ var clockAnimate;
  
  const canvasBg = '#1C1C28';
  
@@ -52,24 +52,13 @@
    let radM = 0.0001 * ( ( min * 60 * 1000 ) + ( sec * 1000 ) + ms );
    let radS = 0.006 * ( ( sec * 1000 ) + ms );
 
+   let myt=1000 * tiempo_JInterno_div4
+
 // balance de tiempo
-   if (tiempo_JInterno_inicio <= 1000 * tiempo_JInterno_div4){
-    if( tiempo_JInterno_etapas < 4) {
-      tiempo_JInterno_inicio += tiempo_JInterno_ang_divX4
-      }
-      else
-      {
-        window.cancelAnimationFrame(draw)
-        alert('se acabo')
-      }
-   }
-   else{
-    tiempo_JInterno_inicio = 0
-    tiempo_JInterno_etapas++    
-  }    
-    // console.log(`ang ${radS},seg ${rad(radS) + threePIByTwo}`);
+
+    // console.log(`ms ${ms},seg ${sec}, t ${tiempo_JInterno_inicio}`);
     let ang_radMinJuego = rad(tiempo_JInterno_etapas * 90 ) + threePIByTwo
-    let ang_radSegJuego = rad( tiempo_JInterno_inicio) + threePIByTwo 
+    let ang_radSegJuego = rad( tiempo_JInterno_inicio/myt) + threePIByTwo 
  
    // Draw Canvas
    drawRect(0, 0, canvasRl.width, canvasRl.height, canvasBg);
@@ -82,7 +71,7 @@
    drawCircle(centerX, centerY, radio + 20, threePIByTwo, ang_radMinJuego , false, hourActiveColor, 'stroke', 90);
    
    // Minute Hand radio medio
-   drawCircle(centerX, centerY, radio, 0, 360, false, minuteInactiveColor, 'stroke', 50);
+   drawCircle(centerX, centerY, radio, 0, 360, false, minuteInactiveColor, 'stroke', 50);//ang_radSegJuego
    drawCircle(centerX, centerY, radio, threePIByTwo, ang_radSegJuego, false, minuteActiveColor, 'stroke', 50);
    
    // Second Hand radio menor
@@ -94,29 +83,70 @@
    //drawCircle(centerX, centerY, 90, 0, 360, false, timerBg, 'fill', '50');
    drawText(`${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")} ${amOrPm}`, canvasRl.width / 2 - 60, canvasRl.height / 2 + 15, '#ffffff', '28px');
  
-   window.requestAnimationFrame(draw);
+       if (tiempo_JInterno_inicio <= tiempo_JInterno_div4){
+      if( tiempo_JInterno_etapas < 4) {
+          tiempo_JInterno_inicio ++//= tiempo_JInterno_ang_divX4 
+          clockAnimate=requestAnimationFrame(draw);
+        }
+        else
+        {
+          // window.cancelAnimationFrame(draw)
+          alert('se acabo')
+          clockStopAnimate()
+        }
+    }
+    else{
+      console.log(
+        `hr = ${date.getHours()}
+         min = ${date.getMinutes()}
+         sec = ${date.getSeconds()}
+         ms = ${date.getMilliseconds()}
+         `)
+      tiempo_JInterno_inicio = 0
+      tiempo_JInterno_etapas++    
+      clockAnimate=requestAnimationFrame(draw);
+    }   
  }
  
  function initClock(tiempo_Juego_minutos)
  {
   //  canvasRl.width = canvasRl.clientWidth - 35;
   //  canvasRl.height = canvasRl.clientHeight - 45;
-    tiempo_JInterno = tiempo_Juego_minutos  //para saber cdo llego al final en tiempo
-    tiempo_JInterno_div4 = tiempo_Juego_minutos / 4 //para saber en cuanto puedo dividir el tiempo de juego para 4 oprtunidades de tiempo
-    tiempo_JInterno_ang_divX4 = ( 360*tiempo_JInterno_div4)/ 10000  //angulo para mostrar el reloj en seg de juego
+/*
+ para el tiempo: coger la hora del dispositivo
+ se toma el tiempo de div que es 4 oportunidades
+ reprog min - parte entera 
+ reprog seg - parte decimal
+  y reprog los tiempo de corte
+*/
+
+    tiempo_JInterno = tiempo_Juego_minutos * 60  //para saber cdo llego al final en tiempo en funcion de seg a lo interno
+    tiempo_JInterno_div4 = (tiempo_JInterno / 4) * 100 //para saber en cuanto puedo dividir el tiempo de juego para 4 oprtunidades de tiempo en miliseg
+    tiempo_JInterno_ang_divX4 = ( 360*tiempo_JInterno_div4)/ 1000  //angulo para mostrar el reloj en seg de juego
     tiempo_JInterno_inicio = 0 //conteo del tiempo en mseg
     tiempo_JInterno_etapas = 0 //conteo de las 4 etapas
 
-    console.log(tiempo_JInterno,tiempo_JInterno_div4, tiempo_JInterno_ang_divX4);
+    const date = new Date();
+  console.log(
+   `hr = ${date.getHours()}
+    min = ${date.getMinutes()}
+    sec = ${date.getSeconds()}
+    ms = ${date.getMilliseconds()}
+     debe de terminar en  ${date.setMinutes(date.getMinutes()+tiempo_Juego_minutos)}
+     `)
+    console.log(
+      ` tiempo de juego min ${tiempo_Juego_minutos},seg ${tiempo_JInterno}
+      tiempo / 4 intentos ${tiempo_JInterno_div4}`
+    );
     
    // This calls the draw function repeatedly at a rate of 60 times per second
-  clockAnimate=  window.requestAnimationFrame(draw);	
+  clockAnimate=  requestAnimationFrame(draw);	
  }
  
  
  
 function clockStopAnimate() {
-  window.cancelAnimationFrame(clockAnimate)
+  cancelAnimationFrame(clockAnimate)
 }
  
  // Convert degree to radians

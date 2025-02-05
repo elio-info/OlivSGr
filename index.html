@@ -102,7 +102,7 @@
      </div>
     </div>
     <!-- Nivel 1: Plantación de olivos -->
-    <div id="n1_gms" style="display: none"  onmouseenter="contarTiempo('n1')" >
+    <div id="n1_gms" style="display: none"   >
       <!-- aqui es algo -->
       <div class="letrero-img-centro">
         <img
@@ -601,7 +601,21 @@
     }
   )
   document.addEventListener ('resize',displayDim('r'))
-  
+  const date = new Date();
+  console.log(
+   `hr = ${date.getHours()}
+    min = ${date.getMinutes()}
+    sec = ${date.getSeconds()}
+    ms = ${date.getMilliseconds()}
+     `)
+    date.setMinutes(date.getMinutes()+1)
+    date.setSeconds(date.getSeconds()+5)
+    console.log (
+    `debe de terminar en  hr = ${date.getHours()}
+    min = ${date.getMinutes()}
+    sec = ${date.getSeconds()}
+    ms = ${date.getMilliseconds()}
+     `)
   </script>
   <!-- InstanceEnd -->
 </html>

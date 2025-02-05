@@ -245,6 +245,8 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
   //sonarJuego= 
  // audioMusica.sonarJuego()
 
+//  tiempo
+contarTiempo(nivel)
   
 }
 
@@ -253,7 +255,7 @@ function contarTiempo(nivel){
   if (!comenzarJuego){
     comenzarJuego=!comenzarJuego
     // alert(tiempo_de_juego_minutos)
-    init(5)
+    initClock(1)
     // clockJuego= new CanvasClock('clock_'+nivel,tiempo_de_juegoSegundos);
   // clockJuego.initCronom()
   }
