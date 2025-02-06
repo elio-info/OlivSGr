@@ -1,3 +1,5 @@
+.oculto{ display: none;}
+
 .lista-centro{
     display: grid;
     /* justify-content: center;

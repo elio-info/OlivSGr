@@ -1,11 +1,13 @@
 // import * as AudioClass from "./audio.js"
+const cantEltsJuego = 4
+
 let terrenos_estados = []
 let acc_a_realizar = '',
   acciones = ['nada', 'arar', 'semb', 'regad','chap','insect','poda','recmnl','recsmmkn','recmknk','slcsprc','indstr','fltrng']
 let img_ruta_src = "utls/imgs/gms/"
-let tiempo = 0,comenzarJuego=false,
-  tiempo_de_juego_minutos=2 //20 seg
-let clockJuego
+let logroAvance = 0,
+  tiempo_de_juego_minutos = 2 // dato en min 
+let clockJuego  //juego en tiempo activo
 let audioBien,audioMal,audioMusica
 let letreros_nvl =
 {
@@ -227,7 +229,7 @@ function siguientePasoNivelGuia(nivel, paso) {
 }
 
 
-function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 3) {
+function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra = cantEltsJuego, cantHerra = 3) {
   // cambio de pantalla a inicio de juego
   cambioDivJuego(divActual, divSiguiente)
   // cambio estados
@@ -241,6 +243,9 @@ function inicioDivJuego(divActual, divSiguiente, nivel, cantTierra, cantHerra = 
    // pongo letrero dentro en la pantalla juego Nivel ?
   ponerLetreroGuiaNivel( nivel, 'c')
 
+  // puntuacion a 0 de nivel
+  logroAvance = 0
+
   // sonar musica de juego
   //sonarJuego= 
  // audioMusica.sonarJuego()
@@ -251,16 +256,11 @@ contarTiempo(nivel)
 }
 
 function contarTiempo(nivel){
-  // comienza reloj
-  if (!comenzarJuego){
-    comenzarJuego=!comenzarJuego
+  // comienza reloj  
     // alert(tiempo_de_juego_minutos)
-    initClock(1)
-    // clockJuego= new CanvasClock('clock_'+nivel,tiempo_de_juegoSegundos);
-  // clockJuego.initCronom()
-  }
- 
- 
+    initClock(1,nivel)
+    clockJuego=true //juego en tiempo activo
+    
 }
 
 
@@ -283,33 +283,60 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
   let nvl_trn = img_elto[0],
     num_trn = img_elto[1],
     img_terreno = coger(idImg)
-   // solo accion si el paso sucesivo es el que se acciona
-  if (terrenos_estados[num_trn] + 1 == acc_a_realizar) {
-    terrenos_estados[num_trn]++
-    img_terreno.src = img_ruta_src +nvl_trn+'/'+ nvl_trn + "_"+letreros_nvl[nvl_trn].lugar+"_" + acciones[acc_a_realizar] + ".jpg"
-    acc_a_realizar = ''
-    // sonar todo bien
-    audioBien.sonarAudio()
-  }
-  else {
-    // sonar todo mal
-    audioMal.sonarAudio()
-    clockJuego.stopCronom()
-  }
 
+    console.log( clockJuego, logroAvance, clock_Juego);
+    
 
-  // si todos llegaron a la accion final
-  let  specificCharacter=letreros_nvl[nvl_trn].final,
-    count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
-// se cumplio con todas las acciones
-    if (count_Acc==terrenos_estados.length) {
-      // mostrar para el otro nivel
-      let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
-      $('#pasar-prox'+ nxt).show()
-      // mostrar foto de globos
+  if (clock_Juego) { // se puede jugar
+      // solo accion si el paso sucesivo es el que se acciona
+    if (terrenos_estados[num_trn] + 1 == acc_a_realizar) {
+      terrenos_estados[num_trn]++
+      img_terreno.src = img_ruta_src +nvl_trn+'/'+ nvl_trn + "_"+letreros_nvl[nvl_trn].lugar+"_" + acciones[acc_a_realizar] + ".jpg"
+      acc_a_realizar = ''
+      // sonar todo bien
+      audioBien.sonarAudio()
 
-      audioMusica.play() //fin de juego y musica
+      puntuacionCoordinar()  //puntuacion
     }
+    else {
+      // sonar todo mal
+      audioMal.sonarAudio()    
+    }
+
+    // si todos llegaron a la accion final
+    let  specificCharacter=letreros_nvl[nvl_trn].final,
+      count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
+    // se cumplio con todas las acciones
+      terminarNivel(nvl_trn)
+        
+}
+
+function terminarNivel(nvl_trn) {
+
+  if (count_Acc==terrenos_estados.length || clock_Juego) {
+    // parar reloj
+    clockStopAnimate()  
+    audioMusica.play() //fin de juego y musica
+  
+   } 
+   
+    if (logroAvance > 3 ) { // poco conocimiento
+        
+      }
+      else {
+        // mostrar foto de globos
+        mostrarElto(nvl_trn+'_glob')
+        }
+    // mostrar para el otro nivel
+    let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
+    $('#pasar-prox'+ nxt).show()    
+
+  
+}
+
+function puntuacionCoordinar() {
+  logroAvance++
+// estrellas poner
 }
 
 function accion_A_Realizar(trabajo) {
@@ -323,7 +350,7 @@ function accion_A_Realizar(trabajo) {
 function paraVideo_Jugar(params,nvl='') {
   //para video
   coger(params+'_01').pause()
-  inicioDivJuego('infoGrl_'+params+'_gms',params+'_gms',nvl==''?params:nvl,6)
+  inicioDivJuego('infoGrl_'+params+'_gms',params+'_gms',nvl==''?params:nvl, cantEltsJuego)
 }
 
 /**
@@ -352,7 +379,7 @@ function displayDim(event_call){
 
   console.log(event_call,display_dim);
   console.log('class posc-fondo-div-tierra w',div_terra.clientWidth);
-  console.log(`div_terra.clientWidth ${div_terra.clientWidth /6}`);
+  console.log(`div_terra.clientWidth ${div_terra.clientWidth / cantEltsJuego}`);
   
 }
 

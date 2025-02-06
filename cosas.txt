@@ -11,7 +11,11 @@ poner los puntos que va obteniendo
 
 reloj:
 - dividir el tiempo en 4. [mostrara el tiempo corriendo seg:min] 
+- tiempo empieza cdo aparece el nivel. 
+    * Para al acabarse el tiempo 
+    * Para al terminar bien el nivel
 
 avance:
 - se le mostrara las estrellas o globlos q los que tendra como obsequio
 - se llenara en f(logros)
+- se debe de fijar la cantidad de punto s aganar
