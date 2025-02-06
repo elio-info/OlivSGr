@@ -302,17 +302,18 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
       // sonar todo mal
       audioMal.sonarAudio()    
     }
+  } // fin tiempo disponible
 
-    // si todos llegaron a la accion final
-    let  specificCharacter=letreros_nvl[nvl_trn].final,
-      count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
-    // se cumplio con todas las acciones
-      terminarNivel(nvl_trn)
+  terminarNivel(nvl_trn)
         
 }
 
 function terminarNivel(nvl_trn) {
 
+  // si todos llegaron a la accion final
+  let  specificCharacter=letreros_nvl[nvl_trn].final,
+    count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
+  // se cumplio con todas las acciones
   if (count_Acc==terrenos_estados.length || clock_Juego) {
     // parar reloj
     clockStopAnimate()  
@@ -320,17 +321,17 @@ function terminarNivel(nvl_trn) {
   
    } 
    
-    if (logroAvance > 3 ) { // poco conocimiento
-        
-      }
-      else {
-        // mostrar foto de globos
-        mostrarElto(nvl_trn+'_glob')
-        }
-    // mostrar para el otro nivel
-    let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
-    $('#pasar-prox'+ nxt).show()    
-
+  switch (logroAvance) {
+    case '< 5':
+      mostrarElto(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.svg`
+      break;
+  
+    default:
+      break;
+  } 
+  // mostrar para el otro nivel
+  let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
+  $('#pasar-prox'+ nxt).show()    
   
 }
 
