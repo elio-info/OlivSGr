@@ -316,23 +316,24 @@ function terminarNivel(nvl_trn) {
 
     console.log( logroAvance, clock_Juego);
   // se cumplio con todas las acciones
-  if (count_Acc==terrenos_estados.length || clock_Juego) {
+  if (count_Acc==terrenos_estados.length || !clock_Juego) {
     // parar reloj
     clockStopAnimate()  
     audioMusica.sonarAudio() //fin de juego y musica  
-   } 
-   
-  switch (logroAvance) {
+
+    switch (logroAvance) {
     case '< 5':
       mostrarElto(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.svg`
       break;
   
     default:
+      // mostrar para el otro nivel
+  let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
+    
       break;
   } 
-  // mostrar para el otro nivel
-  let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
-  $('#pasar-prox'+ nxt).show()    
+   $('#pasar-prox'+ nxt).show() 
+   }   
   
 }
 
