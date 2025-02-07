@@ -7,7 +7,7 @@ let acc_a_realizar = '',
 let img_ruta_src = "utls/imgs/gms/"
 let logroAvance = 0,
   tiempo_de_juego_minutos = 2 // dato en min 
-let clockJuego  //juego en tiempo activo
+ //juego en tiempo activo
 let audioBien,audioMal,audioMusica
 let letreros_nvl =
 {
@@ -259,7 +259,7 @@ function contarTiempo(nivel){
   // comienza reloj  
     // alert(tiempo_de_juego_minutos)
     initClock(1,nivel)
-    clockJuego=true //juego en tiempo activo
+     //juego en tiempo activo
     
 }
 
@@ -284,7 +284,7 @@ function mostrarCambioEstado(idImg, acc_A_Tierrass = '') {
     num_trn = img_elto[1],
     img_terreno = coger(idImg)
 
-    console.log( clockJuego, logroAvance, clock_Juego);
+    console.log( logroAvance, clock_Juego);
     
 
   if (clock_Juego) { // se puede jugar
@@ -313,12 +313,13 @@ function terminarNivel(nvl_trn) {
   // si todos llegaron a la accion final
   let  specificCharacter=letreros_nvl[nvl_trn].final,
     count_Acc = terrenos_estados.filter(element => element === specificCharacter).length;
+
+    console.log( logroAvance, clock_Juego);
   // se cumplio con todas las acciones
   if (count_Acc==terrenos_estados.length || clock_Juego) {
     // parar reloj
     clockStopAnimate()  
-    audioMusica.play() //fin de juego y musica
-  
+    audioMusica.sonarAudio() //fin de juego y musica  
    } 
    
   switch (logroAvance) {
