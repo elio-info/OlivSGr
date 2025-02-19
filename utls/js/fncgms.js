@@ -6,7 +6,7 @@ let acc_a_realizar = '',
   acciones = ['nada', 'arar', 'semb', 'regad','chap','insect','poda','recmnl','recsmmkn','recmknk','slcsprc','indstr','fltrng']
 let img_ruta_src = "utls/imgs/gms/"
 let logroAvance = 0,
-  tiempo_de_juego_minutos = 2 // dato en min 
+  tiempo_de_juego_minutos = 0.2 // dato en min 
  //juego en tiempo activo
 let audioBien,audioMal,audioMusica
 let letreros_nvl =
@@ -52,7 +52,7 @@ let letreros_nvl =
     `,
     lugar:'rama',
     fig_Gral:'ninos_arbol_recolect.webp',
-    fig_inicio:'n3_rama_baja.webp',
+    fig_inicio:'n3_ramas_bjs.jpg',
     final:9 //acciones[9]='recmknk'
   },
   'n4': {
@@ -258,7 +258,7 @@ contarTiempo(nivel)
 function contarTiempo(nivel){
   // comienza reloj  
     // alert(tiempo_de_juego_minutos)
-    initClock(0.1,nivel)
+    initClock(tiempo_de_juego_minutos,nivel)
      //juego en tiempo activo
     
 }
