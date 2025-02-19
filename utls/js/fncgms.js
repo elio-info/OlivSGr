@@ -258,7 +258,7 @@ contarTiempo(nivel)
 function contarTiempo(nivel){
   // comienza reloj  
     // alert(tiempo_de_juego_minutos)
-    initClock(1,nivel)
+    initClock(0.1,nivel)
      //juego en tiempo activo
     
 }
@@ -321,17 +321,13 @@ function terminarNivel(nvl_trn) {
     clockStopAnimate()  
     audioMusica.sonarAudio() //fin de juego y musica  
 
-    switch (logroAvance) {
-    case '< 5':
-      mostrarElto(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.svg`
-      break;
-  
-    default:
+    if (logroAvance < cantEltsJuego  * 2) 
+      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.svg`
+    else  
+      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/n_globos.png`
       // mostrar para el otro nivel
   let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
-    
-      break;
-  } 
+   
    $('#pasar-prox'+ nxt).show() 
    }   
   

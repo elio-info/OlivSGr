@@ -1,5 +1,6 @@
  //reloj de internet
- let canvasRl , ctx , radio, clock_Juego
+ let canvasRl , ctx , radio, clock_Juego,
+      nivel_Juego
  
  // set the start point of the hour, minute and second hand to top
  const threePIByTwo = (3 * Math.PI) / 2;
@@ -26,9 +27,9 @@
    // Finding center point of canvas
    const centerX = canvasRl.width / 2,
      centerY = canvasRl.height / 2; 
-   
-  // balance de tiempo
-      if (tiempo_JInterno_inicio <= tiempo_JInterno_div4){
+    // console.log(clock_Juego,tiempo_JInterno_etapas);
+  // balance de tiempo| clock_Juego
+      if (tiempo_JInterno_inicio <= tiempo_JInterno_div4 ){
       if( tiempo_JInterno_etapas < 4) {
           tiempo_JInterno_inicio ++//= 
           clockAnimate=requestAnimationFrame(draw);
@@ -38,6 +39,7 @@
           // window.cancelAnimationFrame(draw)
           alert('se acabo')
           clockStopAnimate()
+          terminarNivel(nivel_Juego)
         }
     }
     else{
@@ -52,6 +54,8 @@
       tiempo_JInterno_inicio = 0
       tiempo_JInterno_etapas++    
       clockAnimate=requestAnimationFrame(draw);
+      console.log(clock_Juego,tiempo_JInterno_etapas,nivel_Juego);
+      
     }  
     // console.log(`ms ${ms},seg ${sec}, t ${tiempo_JInterno_inicio}`);
     let ang_radMinJuego = rad(tiempo_JInterno_etapas * 90 ) + threePIByTwo
@@ -92,6 +96,8 @@
  {
   //  activar tiempo juego
    clock_Juego= true
+  //  nivel del juego
+  nivel_Juego=lugarCanvas
 
    canvasRl = document.getElementById('clock_'+lugarCanvas);
    ctx = canvasRl.getContext('2d');
