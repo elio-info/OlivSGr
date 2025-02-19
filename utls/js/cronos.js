@@ -37,7 +37,7 @@
         else
         {
           // window.cancelAnimationFrame(draw)
-          alert('se acabo')
+          // alert('se acabo')
           clockStopAnimate()
           terminarNivel(nivel_Juego)
         }
@@ -54,7 +54,7 @@
       tiempo_JInterno_inicio = 0
       tiempo_JInterno_etapas++    
       clockAnimate=requestAnimationFrame(draw);
-      console.log(clock_Juego,tiempo_JInterno_etapas,nivel_Juego);
+      // console.log(clock_Juego,tiempo_JInterno_etapas,nivel_Juego);
       
     }  
     // console.log(`ms ${ms},seg ${sec}, t ${tiempo_JInterno_inicio}`);

@@ -30,7 +30,7 @@
         alt="Olive Farm"
         class="imagenFit img-fluid"
       />
-      <div class="letrero-txt-lado-arriba">
+      <div class="row letrero-txt-lado-arriba">
         <h1>Olivares Santos Grampha´s</h1>
         <p class="fondo-opaco">
          Explora la mágica aventura del mundo de los olivos.
@@ -169,7 +169,7 @@
           <!-- pasar prox -->
           <div id="pasar-prox2"   class="posc-fondo-div-proxNvl"   style="display: none" >
 
-            <img src="utls/imgs/gms/n_globos.png" alt="**" id="n1_glob" class="imagenWebp">
+            <img src="" alt="**" id="n1_glob" class="imagenWebp">
             <div>
               <button onclick="inicioDivJuego('n1_gms','infoGrl_n2','n2')" class="btn btn-success btn-lg">
                 ¡Nivel terminado!  Sigamos...
@@ -237,9 +237,15 @@
           alt="Olive Farm"
           class="imagenFit"
         />
-        <div class="letrero-txt-lado-arriba">
+        <div class="row letrero-txt-lado-arriba">
           <h2>Olivares Santos Grampha´s</h2>
-          <h4 id="n2_cabeza" class="fondo-opaco"></h4>
+          <div style="width: 80%;" >            
+            <p id="n2_cabeza" class="fondo-opaco"></p>
+          </div>
+          <div style="width: 20%;">
+            <canvas id="clock_n2" class="clock_dims"></canvas>
+          </div>
+          <!-- <h4 id="n2_cabeza" class="fondo-opaco"></h4> -->
         </div>
 
         <!-- seccion de acciones de juego justify-content-center-->
@@ -361,9 +367,14 @@
             alt="Olive Farm"
             class="imagenFit"
           />
-          <div class="letrero-txt-lado-arriba">
+          <div class="row letrero-txt-lado-arriba">
             <h2>Olivares Santos Grampha´s</h2>
-            <h4 id="n3_cabeza" class="fondo-opaco"></h4>
+            <div style="width: 80%;" >            
+              <p id="n3_cabeza" class="fondo-opaco"></p>
+            </div>
+            <div style="width: 20%;">
+              <canvas id="clock_n3" class="clock_dims"></canvas>
+            </div>
           </div>
   
           <!-- seccion de acciones de juego justify-content-center-->
@@ -483,9 +494,14 @@
             alt="Olive Farm"
             class="imagenFit"
           />
-          <div class="letrero-txt-lado-arriba">
+          <div class="row letrero-txt-lado-arriba">
             <h2>Olivares Santos Grampha´s</h2>
-            <h4 id="n4_cabeza" class="fondo-opaco"></h4>
+            <div style="width: 80%;" >            
+              <p id="n4_cabeza" class="fondo-opaco"></p>
+            </div>
+            <div style="width: 20%;">
+              <canvas id="clock_n4" class="clock_dims"></canvas>
+            </div>
           </div>
   
           <!-- seccion de acciones de juego justify-content-center-->

@@ -322,9 +322,9 @@ function terminarNivel(nvl_trn) {
     audioMusica.sonarAudio() //fin de juego y musica  
 
     if (logroAvance < cantEltsJuego  * 2) 
-      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.svg`
+      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/mejorarpuntuacion.jpg`
     else  
-      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/n_globos.png`
+      coger(nvl_trn+'_glob').src=img_ruta_src + `grls/n_globos.jpg`
       // mostrar para el otro nivel
   let nxt=letreros_nvl[nvl_trn].prox!=undefined? letreros_nvl[nvl_trn].prox:(parseInt(nvl_trn[1])+1)
    
